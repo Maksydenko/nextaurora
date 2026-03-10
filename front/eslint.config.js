@@ -139,6 +139,14 @@ const eslintConfig = [
         }
       ],
       'react/button-has-type': 'warn',
+      'react/jsx-curly-brace-presence': [
+        'warn',
+        {
+          children: 'never',
+          propElementValues: 'always',
+          props: 'never'
+        }
+      ],
       'react/jsx-no-useless-fragment': [
         'warn',
         {
