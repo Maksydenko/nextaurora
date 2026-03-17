@@ -168,7 +168,9 @@ const eslintConfig = [
         'warn',
         {
           groups: [
-            ['^react$', '^next', '^[a-z]'],
+            ['^react$', '^react-dom$'],
+            ['^next$'],
+            ['^[a-z]'],
             ['^@'],
             ['^@/application'],
             ['^@/views'],
