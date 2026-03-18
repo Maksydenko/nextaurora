@@ -195,7 +195,7 @@ const eslintConfig = [
             ['\\/interfaces$', '\\.interface$'],
             ['^\\.\\.(?!/?$)', '^\\.(?!/?$)'],
             ['^'],
-            ['^.+\\.s?css$'],
+            ['^.+\\.module\\.s?css$'],
             ['^\\u0000']
           ]
         }
