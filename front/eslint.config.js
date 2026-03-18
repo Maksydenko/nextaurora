@@ -169,7 +169,7 @@ const eslintConfig = [
         {
           groups: [
             ['^react$', '^react-dom$'],
-            ['^next$'],
+            ['^next$', '^next/'],
             ['^[a-z]'],
             ['^@'],
             ['^@/application/'],
