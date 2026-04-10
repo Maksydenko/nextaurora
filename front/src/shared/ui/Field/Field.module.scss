@@ -1,0 +1,93 @@
+@use '@/application/styles/module' as *;
+
+.field {
+  // .field__body
+  &__body {
+    display: grid;
+    gap: rem(10);
+    align-content: start;
+  }
+
+  // .field__label
+  &__label {
+    font-size: rem(15);
+    font-weight: 500;
+    line-height: em(35, 15);
+    color: var(--mainColor);
+  }
+
+  // .field__control
+  &__control {
+    min-height: rem(35);
+    font-size: rem(15);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--mainColor);
+    background: var(--fieldBg);
+    border-radius: rem(4);
+    box-shadow: 0 0 0 rem(1) var(--fieldShadow);
+    transition: box-shadow 0.2s ease;
+
+    input {
+      height: rem(40);
+    }
+
+    textarea {
+      min-height: rem(80);
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      padding: rem(10);
+      box-shadow: none;
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      &::placeholder {
+        color: var(--mutedColor);
+        opacity: 0.8;
+      }
+
+      &::selection {
+        color: var(--fieldSelectionColor);
+        background: var(--fieldSelectionBg);
+      }
+    }
+  }
+
+  // .field__error
+  &__error {
+    font-size: rem(13);
+    font-weight: 400;
+    line-height: 1.35;
+    color: var(--mainColor);
+    text-align: start;
+    opacity: 0.8;
+  }
+
+  &:has(:disabled) {
+    opacity: 0.4;
+  }
+
+  &:has([aria-invalid='true']) {
+    .field__control {
+      box-shadow: 0 0 0 rem(2) $red500;
+    }
+  }
+
+  &:not(:has(:disabled)):not(:has([aria-invalid='true'])) {
+    .field__control {
+      &:hover {
+        box-shadow: 0 0 0 rem(1) var(--fieldShadowStrong);
+      }
+
+      &:focus-within {
+        box-shadow: 0 0 0 rem(2) var(--fieldShadowStrong);
+      }
+    }
+  }
+}

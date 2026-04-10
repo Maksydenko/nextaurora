@@ -1,0 +1,31 @@
+@use '@/application/styles/module' as *;
+
+.loader {
+  font-size: rem(30);
+
+  @extend %absoluteCenter;
+
+  &::after {
+    display: block;
+    width: em(40, 40);
+    aspect-ratio: 1;
+    content: '';
+    background:
+      radial-gradient(farthest-side, $gray900 94%, transparent)
+        top/em(8, 40) em(8, 40) no-repeat,
+      conic-gradient(transparent 30%, $gray900);
+    border-radius: 50%;
+    mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - em(8, 40)),
+      $black 0
+    );
+    animation: loading 1s infinite linear;
+  }
+}
+
+@keyframes loading {
+  100% {
+    rotate: 1turn;
+  }
+}

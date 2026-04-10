@@ -1,0 +1,119 @@
+@use '@/application/styles/module' as *;
+
+.lineChart {
+  // .lineChart__xAxis
+  &__xAxis {
+    :global(.recharts-cartesian-axis-tick) {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: rem(8);
+        aspect-ratio: 1;
+        content: '';
+        background: $gray100;
+        translate: -50% 0;
+      }
+    }
+  }
+
+  // .lineChart__yAxis
+  &__yAxis {
+    font-size: rem(12);
+    line-height: em(14.63, 12);
+
+    @media (max-width: $md) {
+      font-size: rem(10);
+      line-height: em(12.19, 10);
+    }
+
+    :global(.recharts-cartesian-axis-line) {
+      display: none;
+    }
+  }
+
+  :global(.recharts-cartesian-grid-vertical) {
+    > line {
+      &:first-child,
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  :global(.recharts-cartesian-axis-tick-line) {
+    display: none;
+  }
+}
+
+.lineChartTick {
+  font-size: rem(12);
+  line-height: em(14.63, 12);
+
+  @media (max-width: $md) {
+    font-size: rem(8);
+    line-height: em(9.75, 8);
+  }
+}
+
+.lineChartTooltip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: rem(10);
+  align-items: center;
+  padding: rem(14);
+  background: $gray50;
+  border-radius: rem(10);
+  filter: drop-shadow(0 rem(4) rem(4) $gray40020);
+  translate: -60% 0;
+
+  @media (max-width: $md) {
+    gap: rem(3);
+  }
+
+  // .lineChartTooltip__item
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: rem(5);
+    align-items: center;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    content: '';
+    border-top: rem(15) solid $gray50;
+    border-right: rem(11) solid transparent;
+    border-left: rem(11) solid transparent;
+    translate: -50% 100%;
+  }
+
+  // .lineChartTooltip__value
+  &__value {
+    font-size: rem(18);
+    font-weight: 600;
+    line-height: em(21.94, 18);
+
+    @media (max-width: $md) {
+      font-size: rem(12);
+      line-height: em(14.63, 12);
+    }
+  }
+
+  // .lineChartTooltip__label
+  &__label {
+    font-size: rem(12);
+    line-height: em(14.63, 12);
+
+    @media (max-width: $md) {
+      font-size: rem(8);
+      line-height: em(9.75, 8);
+    }
+  }
+}

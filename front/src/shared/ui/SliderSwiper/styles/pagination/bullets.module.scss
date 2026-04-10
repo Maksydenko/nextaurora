@@ -1,0 +1,50 @@
+@use '@/application/styles/module' as *;
+
+.sliderSwiper {
+  // .sliderSwiper_bullets
+  &_bullets {
+    // Room for absolutely positioned bullets (see bottom offset + largest dot).
+    .sliderSwiper__swiper {
+      padding-bottom: rem(40);
+    }
+  }
+
+  :global(.swiper-pagination) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:global(.swiper-pagination-bullets) {
+      bottom: rem(16) !important;
+      gap: rem(8);
+    }
+
+    :global(.swiper-pagination-bullet) {
+      margin: 0 !important;
+      background: var(--mutedColor) !important;
+      opacity: 0.4;
+
+      &:not(:global(.swiper-pagination-bullet-active)) {
+        width: rem(8) !important;
+        height: unset !important;
+        aspect-ratio: 1;
+        transition: 0.2s ease;
+        transition-property: width, opacity;
+
+        &:hover,
+        &:focus-visible {
+          opacity: 0.8;
+        }
+      }
+
+      &:global(.swiper-pagination-bullet-active) {
+        width: rem(12) !important;
+        height: unset !important;
+        aspect-ratio: 1;
+        cursor: default;
+        background: var(--accentColor) !important;
+        opacity: 1;
+      }
+    }
+  }
+}

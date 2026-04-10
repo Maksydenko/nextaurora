@@ -1,0 +1,1 @@
+export { SliderSwiperNav } from './SliderSwiperNav'

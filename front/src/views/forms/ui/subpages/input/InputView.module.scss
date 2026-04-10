@@ -1,0 +1,15 @@
+@use '@/application/styles/module' as *;
+
+.inputView {
+  // .inputView__container
+  &__container {
+    @extend %container;
+  }
+
+  // .inputView__form
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: rem(18);
+  }
+}

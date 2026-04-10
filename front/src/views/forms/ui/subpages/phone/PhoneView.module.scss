@@ -1,0 +1,8 @@
+@use '@/application/styles/module' as *;
+
+.phoneView {
+  // .phoneView__container
+  &__container {
+    @extend %container;
+  }
+}

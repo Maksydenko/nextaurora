@@ -1,0 +1,85 @@
+@use '@/application/styles/module' as *;
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+}
+
+html,
+body {
+  min-width: $minWidth + px;
+  height: 100%;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: $primaryFontFamily;
+  font-size: $fontSize;
+  line-height: 1.625;
+  color: var(--mainColor);
+  background: var(--mainBgColor);
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+input {
+  box-shadow: 0 0 0 rem(999) var(--mainBgColor) inset;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  line-height: inherit;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  > li {
+    list-style: none;
+  }
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}

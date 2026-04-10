@@ -1,0 +1,27 @@
+@use '@/application/styles/module' as *;
+
+.appShell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: clip;
+  color: var(--mainColor);
+  background: var(--mainBgColor);
+
+  // .appShell__body
+  &__body {
+    flex: 1 1 auto;
+
+    @media (min-width: $lg) {
+      display: flex;
+    }
+  }
+
+  // .appShell__main
+  &__main {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-width: 0;
+  }
+}

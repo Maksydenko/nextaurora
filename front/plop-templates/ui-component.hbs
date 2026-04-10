@@ -1,0 +1,23 @@
+import { type JSX } from 'react'
+
+import { clsx } from 'clsx'
+
+import s from './{{pascalCase name}}.module.scss'
+
+interface {{pascalCase name}}Props {
+  className?: string
+  
+}
+
+export const {{pascalCase name}} = ({
+  className,
+  
+}: {{pascalCase name}}Props): JSX.Element => {
+  
+
+  return (
+    <div className={clsx(s.{{camelCase name}}, className)}>
+      
+    </div>
+  )
+};

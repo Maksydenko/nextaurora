@@ -1,0 +1,33 @@
+@use '@/application/styles/module' as *;
+
+.phone {
+  width: 100%;
+
+  :global(.PhoneInputCountry) {
+    flex: 0 0 rem(20);
+    padding-left: rem(10);
+    margin: 0;
+
+    :global(.PhoneInputCountrySelect) {
+      display: none;
+    }
+
+    :global(.PhoneInputCountrySelectArrow) {
+      display: none;
+    }
+
+    :global(.PhoneInputCountryIcon) {
+      width: rem(20);
+      aspect-ratio: 1;
+    }
+
+    :global(.PhoneInputCountryIcon--border) {
+      background: none;
+      box-shadow: none;
+    }
+  }
+
+  :global(.PhoneInputInput) {
+    flex: 1 1 auto;
+  }
+}

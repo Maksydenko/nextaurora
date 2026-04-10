@@ -1,0 +1,29 @@
+@use '@/application/styles/module' as *;
+
+// Scrollbar styles
+
+@include themeVar(scrollColor, hsl(220 9% 46% / 0.45), hsl(215 14% 64% / 0.35));
+@include themeVar(scrollBg, hsl(220 14% 96%), hsl(215 28% 17%));
+
+::-webkit-scrollbar {
+  width: rem(8);
+  height: rem(4);
+  background: var(--scrollBg);
+
+  // ::-webkit-scrollbar-thumbs
+
+  &-thumb {
+    background: var(--scrollColor);
+    border-radius: rem(4);
+  }
+}
+
+// Body tag styles
+body {
+  // Lock scroll
+  .lock {
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+  }
+}

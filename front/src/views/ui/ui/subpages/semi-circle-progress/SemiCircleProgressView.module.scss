@@ -1,0 +1,18 @@
+@use '@/application/styles/module' as *;
+
+.semiCircleProgressView {
+  // .semiCircleProgressView__container
+  &__container {
+    @extend %container;
+  }
+
+  // .semiCircleProgressView__stage
+  &__stage {
+    display: flex;
+    justify-content: center;
+    padding: rem(24);
+    background: var(--mutedBg);
+    border: rem(1) solid var(--borderColor);
+    border-radius: rem(12);
+  }
+}

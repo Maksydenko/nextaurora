@@ -1,22 +1,22 @@
-import perfectionist from 'eslint-plugin-perfectionist';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import unusedImports from 'eslint-plugin-unused-imports';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import perfectionist from 'eslint-plugin-perfectionist'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import unusedImports from 'eslint-plugin-unused-imports'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 
-import { FlatCompat } from '@eslint/eslintrc';
-import pluginQuery from '@tanstack/eslint-plugin-query';
+import { FlatCompat } from '@eslint/eslintrc'
+import pluginQuery from '@tanstack/eslint-plugin-query'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 const compat = new FlatCompat({
   baseDirectory: __dirname
-});
+})
 
 const eslintConfig = [
   {
-    ignores: ['node_modules', '.next']
+    ignores: ['node_modules', '.next', 'next-env.d.ts', 'plopfile.js']
   },
   ...compat.extends(
     'next/core-web-vitals',
@@ -32,6 +32,14 @@ const eslintConfig = [
       'unused-imports': unusedImports
     },
     rules: {
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          disallowTypeAnnotations: false,
+          fixStyle: 'inline-type-imports',
+          prefer: 'type-imports'
+        }
+      ],
       '@typescript-eslint/explicit-module-boundary-types': 'warn',
       '@typescript-eslint/no-inferrable-types': [
         'warn',
@@ -212,6 +220,6 @@ const eslintConfig = [
       ]
     }
   }
-];
+]
 
-export default eslintConfig;
+export default eslintConfig

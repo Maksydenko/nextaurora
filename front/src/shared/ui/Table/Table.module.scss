@@ -1,0 +1,28 @@
+@use '@/application/styles/module' as *;
+
+.table {
+  border-collapse: collapse;
+  border-radius: rem(4);
+
+  thead {
+    tr {
+      background: var(--mutedBg);
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background: var(--borderColor);
+      }
+
+      &:nth-child(even) {
+        background: var(--mutedBg);
+      }
+    }
+  }
+
+  td {
+    padding: rem(16) rem(20);
+  }
+}

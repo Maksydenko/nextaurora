@@ -1,0 +1,62 @@
+@use '@/application/styles/module' as *;
+
+.themeSwitcher {
+  display: inline-flex;
+  height: rem(34);
+  padding: rem(3);
+  background: $gray100;
+  border: rem(1) solid var(--borderColor);
+  border-radius: rem(8);
+
+  @include onDark {
+    background: $gray900;
+  }
+
+  // .themeSwitcher__item
+  &__item {
+    all: unset;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    font-size: rem(15);
+    line-height: 1;
+    color: var(--mutedColor);
+    user-select: none;
+    border-radius: rem(6);
+    transition: 0.2s ease;
+    transition-property: color, background;
+
+    &:focus-visible {
+      outline: rem(2) solid $sky500;
+      outline-offset: rem(2);
+    }
+
+    &:hover {
+      &:not(:disabled) {
+        color: var(--mainColor);
+        background: $gray100;
+
+        @include onDark {
+          background: $white6;
+        }
+      }
+    }
+
+    &[data-state='on'] {
+      color: var(--mainColor);
+      background: $gray200;
+      box-shadow: 0 rem(1) rem(2) $black6;
+
+      @include onDark {
+        background: $gray800;
+      }
+    }
+  }
+
+  // .themeSwitcher__icon
+  &__icon {
+    width: rem(16);
+    aspect-ratio: 1;
+  }
+}

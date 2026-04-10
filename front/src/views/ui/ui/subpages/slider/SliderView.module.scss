@@ -1,0 +1,21 @@
+@use '@/application/styles/module' as *;
+
+.sliderView {
+  // .sliderView__container
+  &__container {
+    @extend %container;
+  }
+
+  // .sliderView__slider
+  &__slider {
+    min-height: rem(220);
+    padding: rem(8) 0 rem(16);
+  }
+
+  // .sliderView__card
+  &__card {
+    width: 100%;
+    max-width: 100%;
+    min-height: rem(200);
+  }
+}

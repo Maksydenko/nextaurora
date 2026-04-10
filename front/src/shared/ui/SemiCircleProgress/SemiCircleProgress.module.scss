@@ -1,0 +1,45 @@
+@use '@/application/styles/module' as *;
+
+.semiCircleProgress {
+  position: relative;
+  width: rem(240);
+  height: rem(120);
+  overflow: hidden;
+
+  // .semiCircleProgress__body
+  &__body {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: rem(6);
+    text-align: center;
+  }
+
+  // .semiCircleProgress__text
+  &__text {
+    font-size: rem(22);
+    font-weight: 700;
+    line-height: 1.2;
+    color: $sky500;
+
+    @media (max-width: $md) {
+      font-size: rem(18);
+    }
+  }
+
+  // .semiCircleProgress__content
+  &__content {
+    font-size: rem(14);
+    line-height: 1.4;
+    color: var(--mainColor);
+    opacity: 0.8;
+  }
+
+  :global(.CircularProgressbar) {
+    width: 100%;
+    vertical-align: middle;
+  }
+}

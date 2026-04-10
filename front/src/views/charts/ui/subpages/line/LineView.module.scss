@@ -1,0 +1,23 @@
+@use '@/application/styles/module' as *;
+
+.lineView {
+  // .lineView__container
+  &__container {
+    @extend %container;
+    padding-top: rem(24);
+    padding-bottom: rem(48);
+  }
+
+  // .lineView__content
+  &__content {
+    padding: rem(16);
+    background: var(--mutedBg);
+    border: rem(1) solid var(--borderColor);
+    border-radius: rem(12);
+  }
+
+  // .lineView__chart
+  &__chart {
+    width: 100%;
+  }
+}

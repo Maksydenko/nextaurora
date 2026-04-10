@@ -1,0 +1,38 @@
+@use './module' as *;
+
+table {
+  border-collapse: collapse;
+  border-radius: rem(4);
+
+  thead {
+    tr {
+      background: var(--mutedBg);
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background: var(--borderColor);
+      }
+
+      &:nth-child(even) {
+        background: var(--mutedBg);
+      }
+    }
+  }
+
+  td {
+    padding: rem(16) rem(20);
+  }
+}
+
+code {
+  padding: em(2, 14) em(6, 14);
+  font-family: $secondaryFontFamily;
+  font-size: rem(14);
+  font-weight: 500;
+  color: var(--mainColor);
+  background: var(--mutedBg);
+  border-radius: em(6, 14);
+}

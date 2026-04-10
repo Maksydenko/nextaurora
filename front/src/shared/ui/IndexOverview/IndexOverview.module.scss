@@ -1,0 +1,109 @@
+@use '@/application/styles/module' as *;
+
+.indexOverview {
+  padding: rem(32) 0 rem(64);
+
+  @media (max-width: $lg) {
+    padding: rem(20) 0 rem(48);
+  }
+
+  @media (max-width: $md) {
+    padding: rem(16) 0 rem(40);
+  }
+
+  // .indexOverview__container
+  &__container {
+    @extend %container;
+  }
+
+  // .indexOverview__body
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+  }
+
+  // .indexOverview__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(32);
+  }
+
+  // .indexOverview__breadcrumbs
+  &__breadcrumbs {
+    @media (max-width: $lg) {
+      display: none;
+    }
+  }
+
+  // .indexOverview__box
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+  }
+
+  // .indexOverview__title
+  &__title {
+    font-size: rem(24);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--mainColor);
+    letter-spacing: -0.02em;
+  }
+
+  // .indexOverview__description
+  &__description {
+    font-size: rem(14);
+    line-height: 1.55;
+    color: var(--mainColor);
+    opacity: 0.8;
+
+    a {
+      font-weight: 600;
+      color: $sky500;
+      text-decoration: underline;
+      text-underline-offset: rem(4);
+
+      &:hover,
+      &:focus-visible {
+        opacity: 0.8;
+      }
+
+      &:focus-visible {
+        outline: rem(2) solid $sky500;
+        outline-offset: rem(2);
+        border-radius: rem(4);
+      }
+    }
+  }
+
+  // .indexOverview__list
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+  }
+
+  // .indexOverview__link
+  &__link {
+    font-size: rem(14);
+    font-weight: 600;
+    color: $sky500;
+    text-underline-offset: rem(4);
+    transition: opacity 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: rem(2) solid $sky500;
+      outline-offset: rem(2);
+      border-radius: rem(4);
+    }
+  }
+}

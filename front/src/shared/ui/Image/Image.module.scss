@@ -1,0 +1,19 @@
+@use '@/application/styles/module' as *;
+
+.image {
+  position: relative;
+  display: grid;
+  place-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // .image__loader
+  &__loader {
+    display: grid;
+    place-items: center;
+  }
+}

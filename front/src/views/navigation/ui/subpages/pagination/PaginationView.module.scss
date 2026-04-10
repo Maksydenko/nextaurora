@@ -1,0 +1,75 @@
+@use '@/application/styles/module' as *;
+
+.paginationView {
+  // .paginationView__container
+  &__container {
+    @extend %container;
+  }
+
+  // .paginationView__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: rem(24);
+  }
+
+  // .paginationView__meta
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(12);
+    align-items: center;
+  }
+
+  // .paginationView__badge
+  &__badge {
+    display: flex;
+    align-items: center;
+    padding: rem(8) rem(14);
+    font-size: rem(13);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: var(--mainColor);
+    background: $sky5008;
+    border-radius: rem(999);
+
+    // .paginationView__badge_muted
+    &_muted {
+      font-weight: 400;
+      opacity: 0.8;
+    }
+  }
+
+  // .paginationView__grid
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: rem(24);
+
+    @media (max-width: $lg) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: $sm) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  // .paginationView__card
+  &__card {
+    min-height: rem(200);
+  }
+
+  // .paginationView__paginationShell
+  &__paginationShell {
+    display: flex;
+    align-items: center;
+    max-width: rem(640);
+    padding: rem(12) rem(18);
+    margin: 0 auto;
+    background: var(--mutedBg);
+    border: rem(1) solid var(--borderColor);
+    border-radius: rem(12);
+    box-shadow: 0 rem(2) rem(12) $gray9004;
+  }
+}

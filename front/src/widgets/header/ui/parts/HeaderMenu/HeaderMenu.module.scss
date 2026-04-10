@@ -1,0 +1,162 @@
+@use '@/application/styles/module' as *;
+
+.headerMenu {
+  display: flex;
+  gap: rem(24);
+  align-items: center;
+
+  // .headerMenu__button
+  &__button {
+    @media (min-width: $lg) {
+      display: none;
+    }
+
+    @media (max-width: $lg) {
+      position: relative;
+      z-index: 9;
+      display: grid;
+      flex-shrink: 0;
+      place-items: center;
+      width: rem(28);
+      aspect-ratio: 1;
+      color: var(--mainColor);
+      border-radius: rem(6);
+      transition: background 0.2s ease;
+
+      &:hover,
+      &:focus-visible {
+        background: $gray9005;
+      }
+
+      @include onDark {
+        &:hover,
+        &:focus-visible {
+          background: $white10;
+        }
+      }
+
+      &::before,
+      &::after,
+      > span {
+        position: absolute;
+        left: 50%;
+        width: rem(16);
+        height: rem(2);
+        background: currentcolor;
+        border-radius: rem(4);
+        translate: -50% 0;
+        transition: 0.2s ease;
+        transition-property: rotate, translate, top, bottom, scale;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+      }
+
+      &::before {
+        top: rem(8);
+      }
+
+      &::after {
+        bottom: rem(8);
+      }
+
+      > span {
+        top: 50%;
+        scale: 1;
+        translate: -50% -50%;
+      }
+
+      // .headerMenu__button_open
+      &_open {
+        &::before,
+        &::after {
+          top: 50%;
+          bottom: auto;
+          translate: -50% -50%;
+        }
+
+        &::before {
+          rotate: 45deg;
+        }
+
+        &::after {
+          rotate: -45deg;
+        }
+
+        > span {
+          scale: 0;
+        }
+      }
+    }
+  }
+
+  // .headerMenu__drawerOverlay
+  &__drawerOverlay {
+    position: fixed;
+    top: $headerHeight;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 900;
+    background: $black45;
+  }
+
+  // .headerMenu__drawerContent
+  &__drawerContent {
+    position: fixed;
+    top: $headerHeight;
+    right: 0;
+    bottom: 0;
+    z-index: 901;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: rem(24) rem(30) rem(30);
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: none;
+    background: var(--mainBgColor);
+    border-left: rem(1) solid var(--borderColor);
+    box-shadow: rem(-4) 0 rem(24) $black14;
+
+    @include onDark {
+      box-shadow: rem(-4) 0 rem(32) $black45;
+    }
+
+    &:focus-visible {
+      outline: rem(2) solid $sky500;
+      outline-offset: rem(-2);
+    }
+  }
+
+  // .headerMenu__drawerTitle
+  &__drawerTitle {
+    @extend %srOnly;
+  }
+
+  // .headerMenu__content
+  &__content {
+    display: flex;
+    gap: rem(40) rem(40);
+    align-items: center;
+    font-size: rem(14);
+
+    @media (max-width: $lg) {
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      justify-content: flex-end;
+      font-size: rem(24);
+    }
+  }
+
+  // .headerMenu__localeSwitcher
+  &__localeSwitcher {
+  }
+
+  // .headerMenu__themeSwitcher
+  &__themeSwitcher {
+  }
+}

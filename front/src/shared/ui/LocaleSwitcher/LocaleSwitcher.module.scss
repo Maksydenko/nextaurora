@@ -1,0 +1,44 @@
+@use '@/application/styles/module' as *;
+
+.localeSwitcher {
+  font-size: rem(14);
+
+  // .localeSwitcher__list
+  &__list {
+    display: flex;
+    color: var(--mainColor);
+  }
+
+  // .localeSwitcher__item
+  &__item {
+    &:not(:last-child) {
+      padding: 0 em(8, 14) 0 0;
+      border-right: em(1, 14) solid var(--mainColor);
+    }
+
+    &:not(:first-child) {
+      padding: 0 0 0 em(8, 14);
+      border-left: em(1, 14) solid var(--mainColor);
+    }
+  }
+
+  // .localeSwitcher__btn
+  &__btn {
+    text-transform: uppercase;
+    transition: opacity 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.4;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.4;
+    }
+
+    &:not(:disabled) {
+      font-weight: 500;
+    }
+  }
+}

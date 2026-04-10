@@ -1,0 +1,11 @@
+.sliderSwiper {
+  :global(.swiper-pagination) {
+    :global(.swiper-pagination-progressbar) {
+      background: var(--borderColor) !important;
+
+      :global(.swiper-pagination-progressbar-fill) {
+        background: var(--accentColor) !important;
+      }
+    }
+  }
+}

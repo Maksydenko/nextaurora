@@ -1,0 +1,67 @@
+@use '@/application/styles/module' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 700;
+  background: var(--mainBgColor);
+  border-bottom: rem(1) solid var(--borderColor);
+
+  // .header__container
+  &__container {
+    width: 100%;
+    max-width: none;
+    padding-right: rem(24);
+    padding-left: rem(24);
+
+    @media (max-width: $sm) {
+      padding-right: rem(16);
+      padding-left: rem(16);
+    }
+  }
+
+  // .header__body
+  &__body {
+    display: flex;
+    gap: rem(32);
+    align-items: center;
+    justify-content: space-between;
+    height: $headerHeight;
+    min-height: $headerHeight;
+  }
+
+  // .header__brand
+  &__brand {
+    font-family: $primaryFontFamily;
+    font-size: rem(18);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--mainColor);
+    letter-spacing: normal;
+    transition: opacity 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.8;
+    }
+  }
+
+  // .header__image
+  &__image {
+    width: rem(70);
+    aspect-ratio: 2 / 1;
+  }
+
+  // .header__content
+  &__content {
+    display: flex;
+    gap: rem(24);
+    align-items: center;
+
+    @media (max-width: $lg) {
+      gap: rem(10);
+    }
+  }
+}

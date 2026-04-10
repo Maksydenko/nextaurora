@@ -1,0 +1,15 @@
+@use '../mixins';
+@use 'colors';
+
+@include mixins.themeVar(mainColor, colors.$gray900, colors.$gray50);
+@include mixins.themeVar(mainBgColor, colors.$white, colors.$gray950);
+@include mixins.themeVar(mutedColor, colors.$gray600, colors.$gray400);
+@include mixins.themeVar(mutedBg, colors.$gray100, colors.$gray900);
+@include mixins.themeVar(borderColor, colors.$gray200, colors.$white10);
+@include mixins.themeVar(accentColor, colors.$sky600, colors.$sky400);
+@include mixins.themeVar(sidebarBg, colors.$gray50, colors.$gray950);
+@include mixins.themeVar(fieldBg, colors.$black4, colors.$white4);
+@include mixins.themeVar(fieldShadow, colors.$black12, colors.$white12);
+@include mixins.themeVar(fieldShadowStrong, colors.$black, colors.$white);
+@include mixins.themeVar(fieldSelectionBg, colors.$black15, colors.$white18);
+@include mixins.themeVar(fieldSelectionColor, colors.$white, colors.$gray950);

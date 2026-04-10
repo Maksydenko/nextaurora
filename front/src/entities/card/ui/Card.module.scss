@@ -1,0 +1,62 @@
+@use '@/application/styles/module' as *;
+@use 'sass:color' as sassColor;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--mutedBg);
+  border: rem(1) solid var(--borderColor);
+  border-radius: rem(16);
+  box-shadow:
+    0 rem(1) rem(2) $gray9006,
+    0 rem(4) rem(12) $gray9004;
+  transition: 0.2s ease;
+  transition-property: border-color, box-shadow;
+
+  &:hover {
+    border-color: $sky50018;
+    box-shadow:
+      0 rem(2) rem(4) $sky5008,
+      0 rem(8) rem(24) $gray9006;
+  }
+
+  // .card__image
+  &__image {
+    aspect-ratio: 16 / 9;
+    background:
+      linear-gradient(
+        135deg,
+        sassColor.change($sky600, $alpha: 0.85),
+        sassColor.change($sky400, $alpha: 0.9)
+      ),
+      radial-gradient(circle at 20% 20%, $white45, transparent 45%);
+    border-bottom: rem(1) solid var(--borderColor);
+  }
+
+  // .card__body
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: rem(6);
+    padding: rem(16) rem(18) rem(18);
+  }
+
+  // .card__title
+  &__title {
+    font-size: rem(17);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--mainColor);
+    letter-spacing: -0.02em;
+  }
+
+  // .card__description
+  &__description {
+    font-size: rem(13);
+    line-height: 1.55;
+    color: var(--mainColor);
+    opacity: 0.8;
+  }
+}

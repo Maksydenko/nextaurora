@@ -1,0 +1,27 @@
+@use '@/application/styles/module' as *;
+
+@use './styles/nav.module';
+@use './styles/pagination/progressbar.module';
+@use './styles/pagination/bullets.module';
+
+.sliderSwiper {
+  // .sliderSwiper__body
+  &__body {
+    position: relative;
+    height: 100%;
+  }
+
+  // .sliderSwiper__swiper
+  &__swiper {
+    height: 100%;
+    user-select: none;
+
+    :global(.swiper-slide) {
+      transition: opacity 0.2s ease;
+
+      &:global(.swiper-slide-thumb-active) {
+        opacity: 0.4;
+      }
+    }
+  }
+}

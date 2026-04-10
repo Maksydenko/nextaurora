@@ -1,0 +1,72 @@
+@use '@/application/styles/module' as *;
+
+.breadcrumbs {
+  // .breadcrumbs__list
+  &__list {
+    position: sticky;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: rem(8);
+    align-items: center;
+    min-width: 0;
+    overflow-x: auto;
+    font-size: rem(14);
+    line-height: rem(24);
+    color: var(--mainColor);
+    white-space: nowrap;
+  }
+
+  // .breadcrumbs__item
+  &__item {
+    display: flex;
+    flex: 0 0 auto;
+    gap: rem(8);
+    align-items: center;
+
+    &_current {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+  }
+
+  // .breadcrumbs__link
+  &__link {
+    flex: 0 0 auto;
+    color: inherit;
+    opacity: 0.8;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: rem(2) solid $sky500;
+      outline-offset: rem(2);
+      border-radius: rem(4);
+    }
+  }
+
+  // .breadcrumbs__muted
+  &__muted {
+    flex: 0 0 auto;
+    color: var(--mutedColor);
+  }
+
+  // .breadcrumbs__current
+  &__current {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--mainColor);
+  }
+
+  // .breadcrumbs__chevron
+  &__chevron {
+    flex: 0 0 auto;
+    width: rem(16);
+    aspect-ratio: 1;
+    color: var(--mainColor);
+    opacity: 0.4;
+  }
+}

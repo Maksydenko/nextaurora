@@ -1,0 +1,46 @@
+@use 'sass:color' as sassColor;
+
+$black: hsl(0 0% 0%);
+$white: hsl(0 0% 100%);
+
+$gray50: hsl(210 24.19% 98.1%);
+$gray100: hsl(220 14.97% 95.9%);
+$gray200: hsl(220 13.57% 91.05%);
+$gray300: hsl(216 13.12% 84%);
+$gray400: hsl(217.9 11.92% 64.26%);
+$gray500: hsl(220.03 10.26% 46.3%);
+$gray600: hsl(214.99 15.66% 34.25%);
+$gray700: hsl(216.94 21.1% 26.81%);
+$gray800: hsl(214.99 30.99% 16.95%);
+$gray900: hsl(221 41.69% 11.07%);
+$gray950: hsl(224.05 72.24% 4.17%);
+
+$sky400: hsl(195.82 100% 50%);
+$sky500: hsl(199.27 100% 47.86%);
+$sky600: hsl(202.08 100% 40.99%);
+
+$red500: hsl(356.95 95.9% 57.72%);
+$green500: hsl(144.06 100% 39.36%);
+
+$black4: sassColor.change($black, $alpha: 0.04);
+$black6: sassColor.change($black, $alpha: 0.06);
+$black12: sassColor.change($black, $alpha: 0.12);
+$black14: sassColor.change($black, $alpha: 0.14);
+$black15: sassColor.change($black, $alpha: 0.15);
+$black45: sassColor.change($black, $alpha: 0.45);
+$white4: sassColor.change($white, $alpha: 0.04);
+$white6: sassColor.change($white, $alpha: 0.06);
+$white10: sassColor.change($white, $alpha: 0.1);
+$white12: sassColor.change($white, $alpha: 0.12);
+$white18: sassColor.change($white, $alpha: 0.18);
+$white25: sassColor.change($white, $alpha: 0.25);
+$white45: sassColor.change($white, $alpha: 0.45);
+$gray30010: sassColor.change($gray300, $alpha: 0.1);
+$gray40020: sassColor.change($gray400, $alpha: 0.2);
+$gray9004: sassColor.change($gray900, $alpha: 0.04);
+$gray9005: sassColor.change($gray900, $alpha: 0.05);
+$gray9006: sassColor.change($gray900, $alpha: 0.06);
+$gray90010: sassColor.change($gray900, $alpha: 0.1);
+$gray90025: sassColor.change($gray900, $alpha: 0.25);
+$sky5008: sassColor.change($sky500, $alpha: 0.08);
+$sky50018: sassColor.change($sky500, $alpha: 0.18);

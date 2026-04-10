@@ -1,0 +1,22 @@
+@use '@/application/styles/module' as *;
+
+.sidebar {
+  position: sticky;
+  top: $headerHeight;
+  bottom: 0;
+  flex: 0 0 $sidebarWidth;
+  align-self: stretch;
+  max-height: calc(100dvh - #{$headerHeight});
+  overflow: hidden auto;
+  background: var(--sidebarBg);
+  border-right: rem(1) solid var(--borderColor);
+
+  @media (max-width: $lg) {
+    display: none;
+  }
+
+  // .sidebar__nav
+  &__nav {
+    padding: rem(24);
+  }
+}

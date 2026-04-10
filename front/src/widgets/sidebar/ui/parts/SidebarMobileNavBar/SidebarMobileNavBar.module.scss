@@ -1,0 +1,93 @@
+@use '@/application/styles/module' as *;
+
+.sidebarMobileNavBar {
+  position: sticky;
+  top: $headerHeight;
+  z-index: 85;
+  display: none;
+  align-items: center;
+  height: $sidebarMobileNavHeight;
+  padding: 0 rem(24);
+  background: var(--mainBgColor);
+
+  @media (max-width: $sm) {
+    padding-right: rem(16);
+    padding-left: rem(16);
+  }
+
+  @media (max-width: $lg) {
+    display: flex;
+  }
+
+  // .sidebarMobileNavBar__button
+  &__button {
+    position: relative;
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: rem(28);
+    aspect-ratio: 1;
+    margin-left: rem(-6);
+    color: var(--mainColor);
+    border-radius: rem(6);
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: var(--borderColor);
+    }
+
+    &:focus-visible {
+      outline: rem(2) solid $sky500;
+      outline-offset: rem(2);
+    }
+  }
+
+  // .sidebarMobileNavBar__buttonIcon
+  &__buttonIcon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: rem(4);
+    align-items: stretch;
+    justify-content: center;
+    width: rem(12);
+    aspect-ratio: 1;
+    pointer-events: none;
+
+    > span {
+      display: block;
+      width: 100%;
+      height: rem(2);
+      background: currentColor;
+      border-radius: rem(1);
+      transform-origin: center;
+      rotate: 0deg;
+      translate: 0 0;
+      transition: 0.2s ease;
+      transition-property: rotate, translate;
+    }
+
+    // .sidebarMobileNavBar__buttonIcon_open
+    &_open {
+      > span {
+        &:first-child {
+          rotate: 45deg;
+          translate: 0 rem(3);
+        }
+
+        &:last-child {
+          rotate: -45deg;
+          translate: 0 rem(-3);
+        }
+      }
+    }
+  }
+
+  // .sidebarMobileNavBar__breadcrumbs
+  &__breadcrumbs {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-left: rem(16);
+  }
+}

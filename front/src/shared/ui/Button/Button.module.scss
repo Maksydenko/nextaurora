@@ -1,0 +1,57 @@
+@use '@/application/styles/module' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: em(12, 16) em(16, 16);
+  font-size: rem(16);
+  font-weight: 500;
+  color: var(--mainBgColor);
+  background: var(--mainColor);
+  border: em(2, 16) solid var(--mainColor);
+  border-radius: em(5, 16);
+  transition: 0.2s ease;
+  transition-property: color, background;
+
+  // .button__body
+  &__body {
+    position: relative;
+  }
+
+  // .button__content
+  &__content {
+    display: flex;
+    gap: em(8, 16);
+    align-items: center;
+  }
+
+  // .button__icon
+  &__icon {
+    width: em(20, 16);
+    aspect-ratio: 1;
+  }
+
+  // .button__loader
+  &__loader {
+  }
+
+  // .button_loading
+  &_loading {
+    .button__content {
+      visibility: hidden;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &:not(:disabled) {
+    &:hover,
+    &:focus-visible {
+      color: var(--mainColor);
+      background: transparent;
+    }
+  }
+}

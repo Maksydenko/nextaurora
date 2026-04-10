@@ -1,0 +1,8 @@
+@use '@/application/styles/module' as *;
+
+.timerView {
+  // .timerView__container
+  &__container {
+    @extend %container;
+  }
+}

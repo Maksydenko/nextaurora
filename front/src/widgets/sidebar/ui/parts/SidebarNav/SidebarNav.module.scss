@@ -1,0 +1,108 @@
+@use '@/application/styles/module' as *;
+
+.sidebarNav {
+  // .sidebarNav_drawer
+  &_drawer {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding-bottom: rem(64);
+    overflow-x: hidden;
+  }
+
+  // .sidebarNav__accordion
+  &__accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-size: rem(14);
+  }
+
+  // .sidebarNav__accordionContent
+  &__accordionContent {
+    padding-top: rem(12);
+  }
+
+  // .sidebarNav__subList
+  &__subList {
+    display: flex;
+    flex-direction: column;
+    gap: rem(8);
+    border-left: rem(1) solid $gray200;
+
+    @include onDark {
+      border-left-color: $white10;
+    }
+  }
+
+  // .sidebarNav__subItem
+  &__subItem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: rem(-1);
+  }
+
+  // .sidebarNav__link
+  &__link {
+    display: inline-block;
+    padding: rem(2) rem(20);
+    padding-left: rem(16);
+    margin-left: rem(-1);
+    font-size: rem(14);
+    line-height: em(24, 14);
+    color: var(--mutedColor);
+    border-left: rem(1) solid transparent;
+    transition: 0.2s ease;
+    transition-property: color, border-color;
+
+    @media (max-width: $sm) {
+      padding-left: rem(20);
+      font-size: rem(16);
+      line-height: em(32, 16);
+    }
+
+    &:hover {
+      color: var(--mainColor);
+      border-left-color: $gray90025;
+
+      @include onDark {
+        border-left-color: $white25;
+      }
+    }
+
+    &:focus-visible {
+      outline: rem(2) solid $sky500;
+      outline-offset: rem(2);
+    }
+
+    // .sidebarNav__link--active
+    &--active {
+      position: relative;
+      font-weight: 600;
+      color: var(--mainColor);
+      border-left-color: transparent;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: rem(-1);
+        width: rem(2);
+        height: 100%;
+        pointer-events: none;
+        content: '';
+        background: $gray950;
+        border-radius: rem(1);
+        translate: 0 -50%;
+
+        @include onDark {
+          background: $white;
+        }
+      }
+
+      &:hover {
+        color: var(--mainColor);
+        border-left-color: transparent;
+      }
+    }
+  }
+}

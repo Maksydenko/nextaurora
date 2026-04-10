@@ -1,0 +1,24 @@
+import { type ValueOf } from '@/shared/model/types/valueOf.type'
+
+const DAYS_IN_WEEK = 7
+const HOURS_IN_DAY = 24
+const MINUTES_IN_HOUR = 60
+const SECONDS_IN_MINUTE = 60
+const MILLISECONDS_IN_SECOND = 1000
+
+export const Time = {
+  DaysInWeek: DAYS_IN_WEEK,
+  HoursInDay: HOURS_IN_DAY,
+  MillisecondsInDay:
+    HOURS_IN_DAY * MINUTES_IN_HOUR * SECONDS_IN_MINUTE * MILLISECONDS_IN_SECOND,
+  MillisecondsInSecond: MILLISECONDS_IN_SECOND,
+  MillisecondsInWeek:
+    DAYS_IN_WEEK *
+    HOURS_IN_DAY *
+    MINUTES_IN_HOUR *
+    SECONDS_IN_MINUTE *
+    MILLISECONDS_IN_SECOND,
+  MinutesInHour: MINUTES_IN_HOUR,
+  SecondsInMinute: SECONDS_IN_MINUTE
+} as const
+export type Time = ValueOf<typeof Time>
