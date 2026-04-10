@@ -16,8 +16,7 @@
     "validate": "bun lint && bun stylelint && bun typecheck",
     "test": "jest",
     "doctor": "bunx -y react-doctor@latest .",
-    "generate": "plop",
-    "prepare": "husky"
+    "generate": "plop"
   },
   "dependencies": {
     "@googlemaps/markerclusterer": "^2.6.2",
