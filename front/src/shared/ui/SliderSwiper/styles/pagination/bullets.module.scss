@@ -21,7 +21,7 @@
 
     :global(.swiper-pagination-bullet) {
       margin: 0 !important;
-      background: var(--mutedColor) !important;
+      background: var(--muted-color) !important;
       opacity: 0.4;
 
       &:not(:global(.swiper-pagination-bullet-active)) {
@@ -42,7 +42,7 @@
         height: unset !important;
         aspect-ratio: 1;
         cursor: default;
-        background: var(--accentColor) !important;
+        background: var(--accent-color) !important;
         opacity: 1;
       }
     }

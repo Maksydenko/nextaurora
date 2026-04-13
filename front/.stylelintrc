@@ -13,6 +13,18 @@
     "color-hex-length": "short",
     "color-no-hex": true,
     "color-named": "never",
+    "custom-property-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Expected custom property name to be kebab-case"
+      }
+    ],
+    "keyframes-name-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Expected keyframes name to be kebab-case"
+      }
+    ],
     "no-empty-source": null,
     "rule-empty-line-before": [
       "always",
@@ -21,7 +33,31 @@
         "ignore": ["after-comment"]
       }
     ],
+    "scss/at-function-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Expected @function name to be kebab-case"
+      }
+    ],
+    "scss/at-mixin-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Expected @mixin name to be kebab-case"
+      }
+    ],
+    "scss/dollar-variable-pattern": [
+      "^_?[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Expected $variable name to be kebab-case"
+      }
+    ],
     "scss/operator-no-newline-after": null,
+    "scss/percent-placeholder-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      {
+        "message": "Expected %-placeholder name to be kebab-case"
+      }
+    ],
     "selector-pseudo-class-no-unknown": [
       true,
       {

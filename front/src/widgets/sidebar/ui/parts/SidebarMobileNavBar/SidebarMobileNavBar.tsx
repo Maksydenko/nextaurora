@@ -30,7 +30,7 @@ export const SidebarMobileNavBar = ({
     <>
       <div className={s.sidebarMobileNavBar}>
         <button
-          aria-controls="sidebarNavigation"
+          aria-controls="sidebar-navigation"
           aria-expanded={isOpen}
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           className={s.sidebarMobileNavBar__button}

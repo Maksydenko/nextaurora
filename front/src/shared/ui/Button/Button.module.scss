@@ -7,9 +7,9 @@
   padding: em(12, 16) em(16, 16);
   font-size: rem(16);
   font-weight: 500;
-  color: var(--mainBgColor);
-  background: var(--mainColor);
-  border: em(2, 16) solid var(--mainColor);
+  color: var(--main-bg-color);
+  background: var(--main-color);
+  border: em(2, 16) solid var(--main-color);
   border-radius: em(5, 16);
   transition: 0.2s ease;
   transition-property: color, background;
@@ -50,7 +50,7 @@
   &:not(:disabled) {
     &:hover,
     &:focus-visible {
-      color: var(--mainColor);
+      color: var(--main-color);
       background: transparent;
     }
   }

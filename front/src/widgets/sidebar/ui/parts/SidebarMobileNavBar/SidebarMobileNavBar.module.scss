@@ -2,13 +2,13 @@
 
 .sidebarMobileNavBar {
   position: sticky;
-  top: $headerHeight;
+  top: $header-height;
   z-index: 85;
   display: none;
   align-items: center;
-  height: $sidebarMobileNavHeight;
+  height: $sidebar-mobile-nav-height;
   padding: 0 rem(24);
-  background: var(--mainBgColor);
+  background: var(--main-bg-color);
 
   @media (max-width: $sm) {
     padding-right: rem(16);
@@ -28,12 +28,12 @@
     width: rem(28);
     aspect-ratio: 1;
     margin-left: rem(-6);
-    color: var(--mainColor);
+    color: var(--main-color);
     border-radius: rem(6);
     transition: background 0.2s ease;
 
     &:hover {
-      background: var(--borderColor);
+      background: var(--border-color);
     }
 
     &:focus-visible {

@@ -1,10 +1,10 @@
 .sliderSwiper {
   :global(.swiper-pagination) {
     :global(.swiper-pagination-progressbar) {
-      background: var(--borderColor) !important;
+      background: var(--border-color) !important;
 
       :global(.swiper-pagination-progressbar-fill) {
-        background: var(--accentColor) !important;
+        background: var(--accent-color) !important;
       }
     }
   }

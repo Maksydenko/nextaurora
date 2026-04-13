@@ -6,18 +6,18 @@
 
   thead {
     tr {
-      background: var(--mutedBg);
+      background: var(--muted-bg);
     }
   }
 
   tbody {
     tr {
       &:nth-child(odd) {
-        background: var(--borderColor);
+        background: var(--border-color);
       }
 
       &:nth-child(even) {
-        background: var(--mutedBg);
+        background: var(--muted-bg);
       }
     }
   }

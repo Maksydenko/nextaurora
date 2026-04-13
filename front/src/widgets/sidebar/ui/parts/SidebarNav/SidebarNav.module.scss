@@ -29,7 +29,7 @@
     gap: rem(8);
     border-left: rem(1) solid $gray200;
 
-    @include onDark {
+     @include on-dark {
       border-left-color: $white10;
     }
   }
@@ -50,7 +50,7 @@
     margin-left: rem(-1);
     font-size: rem(14);
     line-height: em(24, 14);
-    color: var(--mutedColor);
+    color: var(--muted-color);
     border-left: rem(1) solid transparent;
     transition: 0.2s ease;
     transition-property: color, border-color;
@@ -62,10 +62,10 @@
     }
 
     &:hover {
-      color: var(--mainColor);
+      color: var(--main-color);
       border-left-color: $gray90025;
 
-      @include onDark {
+       @include on-dark {
         border-left-color: $white25;
       }
     }
@@ -79,7 +79,7 @@
     &--active {
       position: relative;
       font-weight: 600;
-      color: var(--mainColor);
+      color: var(--main-color);
       border-left-color: transparent;
 
       &::before {
@@ -94,13 +94,13 @@
         border-radius: rem(1);
         translate: 0 -50%;
 
-        @include onDark {
+         @include on-dark {
           background: $white;
         }
       }
 
       &:hover {
-        color: var(--mainColor);
+        color: var(--main-color);
         border-left-color: transparent;
       }
     }

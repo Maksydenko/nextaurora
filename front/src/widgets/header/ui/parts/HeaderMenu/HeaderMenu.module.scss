@@ -19,7 +19,7 @@
       place-items: center;
       width: rem(28);
       aspect-ratio: 1;
-      color: var(--mainColor);
+      color: var(--main-color);
       border-radius: rem(6);
       transition: background 0.2s ease;
 
@@ -28,7 +28,7 @@
         background: $gray9005;
       }
 
-      @include onDark {
+       @include on-dark {
         &:hover,
         &:focus-visible {
           background: $white10;
@@ -95,7 +95,7 @@
   // .headerMenu__drawerOverlay
   &__drawerOverlay {
     position: fixed;
-    top: $headerHeight;
+    top: $header-height;
     right: 0;
     bottom: 0;
     left: 0;
@@ -106,7 +106,7 @@
   // .headerMenu__drawerContent
   &__drawerContent {
     position: fixed;
-    top: $headerHeight;
+    top: $header-height;
     right: 0;
     bottom: 0;
     z-index: 901;
@@ -118,11 +118,11 @@
     overflow-x: hidden;
     overflow-y: auto;
     outline: none;
-    background: var(--mainBgColor);
-    border-left: rem(1) solid var(--borderColor);
+    background: var(--main-bg-color);
+    border-left: rem(1) solid var(--border-color);
     box-shadow: rem(-4) 0 rem(24) $black14;
 
-    @include onDark {
+     @include on-dark {
       box-shadow: rem(-4) 0 rem(32) $black45;
     }
 
@@ -134,7 +134,7 @@
 
   // .headerMenu__drawerTitle
   &__drawerTitle {
-    @extend %srOnly;
+    @extend %sr-only;
   }
 
   // .headerMenu__content

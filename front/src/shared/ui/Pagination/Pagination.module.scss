@@ -14,7 +14,7 @@
     flex-shrink: 0;
     width: em(16, 16);
     height: em(16, 16);
-    color: var(--mainColor);
+    color: var(--main-color);
     transition: color 0.2s ease;
   }
 
@@ -51,13 +51,13 @@
   &__previousLink:not(.pagination__disabledLink),
   &__nextLink:not(.pagination__disabledLink) {
     .pagination__icon {
-      color: var(--accentColor);
+      color: var(--accent-color);
     }
 
     &:hover,
     &:focus-visible {
       .pagination__icon {
-        color: var(--mainColor);
+        color: var(--main-color);
       }
     }
   }
@@ -85,7 +85,7 @@
     width: em(40, 16);
     height: em(40, 16);
     font-size: inherit;
-    color: var(--mutedColor);
+    color: var(--muted-color);
     border-radius: rem(8);
     transition:
       color 0.2s ease,
@@ -97,8 +97,8 @@
 
       &:hover,
       &:focus-visible {
-        color: var(--mainColor);
-        background: var(--mutedBg);
+        color: var(--main-color);
+        background: var(--muted-bg);
       }
     }
   }
@@ -110,14 +110,14 @@
   // .pagination__activeLink
   &__activeLink {
     font-weight: 600;
-    color: var(--mainBgColor);
+    color: var(--main-bg-color);
     cursor: default;
-    background: var(--accentColor);
+    background: var(--accent-color);
 
     &:hover,
     &:focus-visible {
-      color: var(--mainBgColor);
-      background: var(--accentColor);
+      color: var(--main-bg-color);
+      background: var(--accent-color);
     }
   }
 
@@ -137,7 +137,7 @@
 
     /* stylelint-disable-next-line no-descending-specificity -- rule order vs. :hover block above */
     .pagination__icon {
-      color: var(--mutedColor);
+      color: var(--muted-color);
       opacity: 0.4;
     }
   }

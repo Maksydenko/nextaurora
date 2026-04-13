@@ -6,18 +6,18 @@ table {
 
   thead {
     tr {
-      background: var(--mutedBg);
+      background: var(--muted-bg);
     }
   }
 
   tbody {
     tr {
       &:nth-child(odd) {
-        background: var(--borderColor);
+        background: var(--border-color);
       }
 
       &:nth-child(even) {
-        background: var(--mutedBg);
+        background: var(--muted-bg);
       }
     }
   }
@@ -29,10 +29,10 @@ table {
 
 code {
   padding: em(2, 14) em(6, 14);
-  font-family: $secondaryFontFamily;
+  font-family: $secondary-font-family;
   font-size: rem(14);
   font-weight: 500;
-  color: var(--mainColor);
-  background: var(--mutedBg);
+  color: var(--main-color);
+  background: var(--muted-bg);
   border-radius: em(6, 14);
 }

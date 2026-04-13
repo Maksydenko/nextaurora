@@ -4,7 +4,7 @@
   width: 100%;
   min-height: rem(320);
   overflow: hidden;
-  border: rem(1) solid var(--borderColor);
+  border: rem(1) solid var(--border-color);
   border-radius: rem(12);
 
   // .map__viewport
@@ -33,7 +33,7 @@
     display: grid;
     place-items: center;
     min-height: rem(320);
-    background: var(--mutedBg, #{$gray100});
+    background: var(--muted-bg, #{$gray100});
   }
 
   // .map_error

@@ -6,26 +6,26 @@
 
 %container {
   // Responsive
-  @if vars.$adaptiveType == 1 {
-    @if vars.$maxWidthContainer > 0 {
+  @if vars.$adaptive-type == 1 {
+    @if vars.$max-width-container > 0 {
       width: 100%;
-      max-width: utils.rem(vars.$containerWidth);
+      max-width: utils.rem(vars.$container-width);
       margin: 0 auto;
     }
 
-    @if vars.$containerPadding > 0 {
-      @if vars.$maxWidthContainer > 0 {
-        padding-right: utils.rem(calc(vars.$containerPadding / 2));
-        padding-left: utils.rem(calc(vars.$containerPadding / 2));
+    @if vars.$container-padding > 0 {
+      @if vars.$max-width-container > 0 {
+        padding-right: utils.rem(calc(vars.$container-padding / 2));
+        padding-left: utils.rem(calc(vars.$container-padding / 2));
       } @else {
-        @include mixins.responsiveValue(
+        @include mixins.responsive-value(
           padding-right,
-          calc(vars.$containerPadding / 2),
+          calc(vars.$container-padding / 2),
           15
         );
-        @include mixins.responsiveValue(
+        @include mixins.responsive-value(
           padding-left,
-          calc(vars.$containerPadding / 2),
+          calc(vars.$container-padding / 2),
           15
         );
       }
@@ -36,14 +36,14 @@
     width: 100%;
     margin: 0 auto;
 
-    @if vars.$maxWidthContainer > 0 {
+    @if vars.$max-width-container > 0 {
       & {
-        max-width: utils.rem(vars.$containerWidth);
+        max-width: utils.rem(vars.$container-width);
       }
     } @else {
-      @if vars.$containerPadding > 0 {
-        padding-right: utils.rem(calc(vars.$containerPadding / 2));
-        padding-left: utils.rem(calc(vars.$containerPadding / 2));
+      @if vars.$container-padding > 0 {
+        padding-right: utils.rem(calc(vars.$container-padding / 2));
+        padding-left: utils.rem(calc(vars.$container-padding / 2));
       }
     }
 
@@ -59,15 +59,15 @@
       max-width: none;
     }
 
-    @if vars.$containerPadding > 0 and vars.$maxWidthContainer > 0 {
-      padding-right: utils.rem(calc(vars.$containerPadding / 2));
-      padding-left: utils.rem(calc(vars.$containerPadding / 2));
+    @if vars.$container-padding > 0 and vars.$max-width-container > 0 {
+      padding-right: utils.rem(calc(vars.$container-padding / 2));
+      padding-left: utils.rem(calc(vars.$container-padding / 2));
     }
   }
 }
 
 // Screen-reader-only text (e.g. dialog/section titles)
-%srOnly {
+%sr-only {
   position: absolute;
   width: utils.rem(1);
   height: utils.rem(1);
@@ -79,7 +79,7 @@
   clip: rect(0, 0, 0, 0);
 }
 
-%absoluteCenter {
+%absolute-center {
   position: absolute;
   top: 50%;
   left: 50%;
