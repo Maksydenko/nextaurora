@@ -52,7 +52,7 @@ export const SidebarMobileNavBar = ({
           </span>
         </button>
 
-        {!!breadcrumbs?.length && (
+        {breadcrumbs && breadcrumbs.length > 0 && (
           <Breadcrumbs
             breadcrumbs={breadcrumbs}
             className={s.sidebarMobileNavBar__breadcrumbs}

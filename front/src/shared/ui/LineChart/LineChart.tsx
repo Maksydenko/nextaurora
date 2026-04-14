@@ -61,7 +61,7 @@ export const LineChart = ({
   className,
   data,
   height = 200,
-  ...props
+  ...rest
 }: LineChartProps): JSX.Element => {
   const generateExtendedData = (source: LineChartDatum[]) => {
     const [firstPoint] = source
@@ -92,7 +92,7 @@ export const LineChart = ({
     <ResponsiveContainer
       className={clsx(className, s.lineChart)}
       height={height}
-      {...props}
+      {...rest}
     >
       <AreaChart
         data={extendedData}

@@ -34,7 +34,7 @@ export const IndexOverview = ({
       <div className={s.indexOverview__container}>
         <div className={s.indexOverview__body}>
           <div className={s.indexOverview__content}>
-            {!!breadcrumbs.length && (
+            {breadcrumbs.length > 0 && (
               <Breadcrumbs
                 breadcrumbs={breadcrumbs}
                 className={s.indexOverview__breadcrumbs}

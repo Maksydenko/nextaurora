@@ -7,8 +7,16 @@ import { IndexOverview } from '@/shared/ui'
 import { formsOverviewBreadcrumbs } from '../model'
 
 const FORMS_OVERVIEW_LINKS: Option[] = [
-  { id: 'input', label: 'Input', value: Pathname.FormsInput },
-  { id: 'phone', label: 'Phone', value: Pathname.FormsPhone }
+  {
+    id: 'input',
+    label: 'Input',
+    value: Pathname.FormsInput
+  },
+  {
+    id: 'phone',
+    label: 'Phone',
+    value: Pathname.FormsPhone
+  }
 ]
 
 export const FormsOverview = (): JSX.Element => (

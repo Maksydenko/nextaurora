@@ -13,9 +13,9 @@ export const Card = ({
   className,
   description,
   title,
-  ...props
+  ...rest
 }: CardProps): JSX.Element => (
-  <article className={clsx(s.card, className)} {...props}>
+  <article className={clsx(s.card, className)} {...rest}>
     <div className={s.card__image} aria-hidden />
 
     <div className={s.card__body}>

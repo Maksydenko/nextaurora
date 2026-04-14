@@ -9,15 +9,31 @@ import { Link } from '@/i18n/navigation'
 import { uiOverviewBreadcrumbs } from '../model'
 
 const UI_OVERVIEW_LINKS: Option[] = [
-  { id: 'map', label: 'Map', value: Pathname.UIMap },
+  {
+    id: 'map',
+    label: 'Map',
+    value: Pathname.UIMap
+  },
   {
     id: 'semiCircleProgress',
     label: 'Semi-circle progress',
     value: Pathname.UISemiCircleProgress
   },
-  { id: 'slider', label: 'Slider', value: Pathname.UISlider },
-  { id: 'table', label: 'Table', value: Pathname.UITable },
-  { id: 'timer', label: 'Timer', value: Pathname.UITimer }
+  {
+    id: 'slider',
+    label: 'Slider',
+    value: Pathname.UISlider
+  },
+  {
+    id: 'table',
+    label: 'Table',
+    value: Pathname.UITable
+  },
+  {
+    id: 'timer',
+    label: 'Timer',
+    value: Pathname.UITimer
+  }
 ]
 
 export const UiOverview = (): JSX.Element => (

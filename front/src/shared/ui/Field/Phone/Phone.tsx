@@ -40,7 +40,7 @@ export const Phone = <T extends FieldValues>({
   options,
   placeholder,
   required,
-  ...props
+  ...rest
 }: PhoneProps<T>): ReactNode => {
   const [currentCountry, setCurrentCountry] = useState<Country | undefined>()
   const {
@@ -98,7 +98,7 @@ export const Phone = <T extends FieldValues>({
         setValue(name, value as PathValue<T, Path<T>>)
         trigger(name)
       }}
-      {...props}
+      {...rest}
       {...restRegister}
     />
   )

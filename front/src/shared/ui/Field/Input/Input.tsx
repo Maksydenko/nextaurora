@@ -38,7 +38,7 @@ export const Input = <T extends FieldValues>({
   placeholder,
   required,
   type,
-  ...props
+  ...rest
 }: InputProps<T>): JSX.Element => {
   const {
     formState: { errors },
@@ -73,7 +73,7 @@ export const Input = <T extends FieldValues>({
         onBlur?.()
       }}
       onFocus={onFocus}
-      {...props}
+      {...rest}
       {...restRegister}
     />
   )

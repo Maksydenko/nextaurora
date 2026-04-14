@@ -57,7 +57,7 @@ export const SliderSwiper = ({
   slides,
   slidesPerView,
   virtual,
-  ...props
+  ...rest
 }: SliderSwiperProps): JSX.Element => {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const swiperRef = useRef<any>(null)
@@ -142,7 +142,7 @@ export const SliderSwiper = ({
           keyboard={keyboard}
           modules={[A11y, Keyboard, Navigation, Pagination, Virtual]}
           pagination={pagination}
-          {...props}
+          {...rest}
         >
           {slideItems}
         </Swiper>

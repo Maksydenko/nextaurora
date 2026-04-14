@@ -29,7 +29,7 @@ export const Pagination = ({
   itemsPerTotal,
   page: pageFromServer,
   pageRangeDisplayed = 1,
-  ...props
+  ...rest
 }: PaginationProps): JSX.Element => {
   const { push } = useRouter()
   const searchParams = useSearchParams()
@@ -81,7 +81,7 @@ export const Pagination = ({
       }
       previousLinkClassName={s.pagination__previousLink}
       onPageChange={handlePageChange}
-      {...props}
+      {...rest}
     />
   )
 }

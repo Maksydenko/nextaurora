@@ -29,7 +29,7 @@ export const Button = ({
   icon,
   isLoading,
   type = 'button',
-  ...props
+  ...rest
 }: ButtonProps): JSX.Element => {
   const classNames = clsx(s.button, isLoading && s.button_loading, className)
   const iconValue = icon?.value
@@ -81,7 +81,7 @@ export const Button = ({
       disabled={isDisabled}
       /* eslint-disable-next-line react/button-has-type */
       type={type}
-      {...props}
+      {...rest}
     >
       {getBodyElement(children)}
     </button>

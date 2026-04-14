@@ -28,15 +28,15 @@ export const Accordion = ({
   className,
   contentTextClassName,
   items,
-  ...props
+  ...rest
 }: AccordionProps): JSX.Element => {
   const rootProps =
-    props.type === 'multiple'
-      ? props
+    rest.type === 'multiple'
+      ? rest
       : {
           collapsible: true,
           type: 'single' as const,
-          ...props
+          ...rest
         }
 
   return (

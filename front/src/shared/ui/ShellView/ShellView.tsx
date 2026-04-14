@@ -32,7 +32,7 @@ export const ShellView = ({
       <div className={s.shellView__body}>
         <div className={s.shellView__container}>
           <div className={s.shellView__content}>
-            {!!breadcrumbs.length && (
+            {breadcrumbs.length > 0 && (
               <Breadcrumbs
                 breadcrumbs={breadcrumbs}
                 className={s.shellView__breadcrumbs}

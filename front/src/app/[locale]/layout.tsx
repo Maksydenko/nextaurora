@@ -29,9 +29,9 @@ interface LocaleLayoutProps extends PageProps {
 
 const LocaleLayout = async ({
   children,
-  ...props
+  ...rest
 }: LocaleLayoutProps): Promise<JSX.Element> => {
-  const { locale } = await props.params
+  const { locale } = await rest.params
 
   return <RootDocument locale={locale}>{children}</RootDocument>
 }
