@@ -3,6 +3,11 @@ import { type Field } from '@/shared/model'
 
 import { type InputViewFormValues } from '../interfaces/inputViewForm.interface'
 
+/**
+ * Field definitions for the input showcase form (title and description).
+ *
+ * @returns Static `Field` list wired to `InputViewFormValues`.
+ */
 export const getInputViewFields = (): Field<InputViewFormValues>[] => [
   {
     label: 'Title',

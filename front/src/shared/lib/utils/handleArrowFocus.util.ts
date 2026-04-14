@@ -8,6 +8,15 @@ interface HandleArrowFocusOptions {
   selector: string
 }
 
+/**
+ * Moves focus between focusable elements on ArrowUp/Down or ArrowLeft/Right key presses.
+ *
+ * @param event - Keyboard event from the currently focused element.
+ * @param isLoop - When `true`, wraps from last to first (and vice versa).
+ * @param isRtl - Swaps previous/next direction for horizontal navigation.
+ * @param isVertical - Uses up/down arrows instead of left/right.
+ * @param selector - CSS selector matching all focusable items in the group.
+ */
 export const handleArrowFocus = ({
   event,
   isLoop,

@@ -89,7 +89,11 @@ const MapInner = ({
     setMapInstance(null)
   }, [])
 
-  // Build markers, InfoWindow popups, and MarkerClusterer when the map or data changes.
+  /**
+   * Creates markers, click handlers, info windows, and clustering for the current map and `places`.
+   *
+   * @remarks Cleanup clears marker listeners and the clusterer to prevent leaks when props change.
+   */
   useEffect(() => {
     if (!mapInstance || !isLoaded) {
       return

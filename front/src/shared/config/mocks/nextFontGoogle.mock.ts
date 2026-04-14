@@ -1,3 +1,6 @@
+/**
+ * Jest mock for `next/font/google` returning stable class names and CSS variables.
+ */
 const Inter = () => ({
   className: 'mockedInter',
   variable: '--mocked-inter'

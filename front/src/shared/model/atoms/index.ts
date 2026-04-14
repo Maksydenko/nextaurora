@@ -1,1 +1,1 @@
-export * from './docBreadcrumbs.atom'
+export * from './breadcrumbs.atom'

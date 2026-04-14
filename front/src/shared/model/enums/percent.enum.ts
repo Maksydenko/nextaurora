@@ -1,5 +1,6 @@
 import { type ValueOf } from '@/shared/model/types/valueOf.type'
 
+/** Common percentage constants for layout, charts, and math helpers. */
 export const Percent = {
   Fifth: 20,
   FourFifths: 80,
@@ -16,4 +17,6 @@ export const Percent = {
   TwoFifths: 40,
   TwoThirds: 66.666
 } as const
+
+/** Union of {@link Percent} numeric literals. */
 export type Percent = ValueOf<typeof Percent>

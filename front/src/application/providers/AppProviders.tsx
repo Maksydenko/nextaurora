@@ -4,8 +4,8 @@ import { ThemeProvider } from 'next-themes'
 
 import { type Locale } from '@/shared/config'
 
-import { NextIntlProvider } from './nextIntlProvider'
-import { QueryProvider } from './query/queryProvider'
+import { NextIntlProvider } from './nextIntl.provider'
+import { QueryProvider } from './query/query.provider'
 
 interface AppProvidersProps {
   children: ReactNode

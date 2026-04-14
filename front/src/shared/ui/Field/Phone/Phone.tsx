@@ -58,7 +58,11 @@ export const Phone = <T extends FieldValues>({
   } = register(name, options)
   const phoneValue = watch(name)
 
-  // Keep the country selector aligned with the dial code in the current value.
+  /**
+   * Updates the default country from the E.164 value so the flag selector matches the dial code.
+   *
+   * @remarks Parses the calling-code segment after the leading `+`; no-op when the value is empty.
+   */
   useEffect(() => {
     if (!phoneValue) {
       return

@@ -9,6 +9,14 @@ interface UseScrollLockReturn {
   setIsScrollLocked: SetState<boolean>
 }
 
+/**
+ * Toggles a `body` scroll lock and optional `inert` attributes on elements matched by selectors.
+ *
+ * @param inerts - CSS selectors for elements to mark `inert` while locked.
+ * @defaultValue `[]`
+ *
+ * @returns `isScrollLocked` plus the React state setter for that flag.
+ */
 export const useScrollLock = (inerts: string[] = []): UseScrollLockReturn => {
   const [isScrollLocked, setIsScrollLocked] = useState(false)
 
@@ -28,7 +36,11 @@ export const useScrollLock = (inerts: string[] = []): UseScrollLockReturn => {
     })
   }
 
-  // Apply or clear scroll lock and inert targets when the open state changes.
+  /**
+   * Applies or removes the lock class and inert flags when lock state or selector list changes.
+   *
+   * @remarks Cleanup always clears `body.lock` and inert flags so the document cannot stay stuck.
+   */
   useEffect(() => {
     const { body } = document
 

@@ -1,3 +1,6 @@
+/**
+ * Unit tests for {@link formatPrice} (UAH display and rounding).
+ */
 import { formatPrice } from '../formatPrice.util'
 
 describe('formatPrice', () => {

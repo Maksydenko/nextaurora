@@ -7,7 +7,7 @@ import { useAtomValue } from 'jotai'
 
 import { Breakpoint } from '@/shared/config'
 import { useMediaQuery } from '@/shared/lib'
-import { docBreadcrumbsAtom } from '@/shared/model'
+import { breadcrumbsAtom } from '@/shared/model'
 import { Breadcrumbs } from '@/shared/ui'
 
 import { SidebarDrawer } from '../SidebarDrawer/SidebarDrawer'
@@ -23,7 +23,7 @@ export const SidebarMobileNavBar = ({
   isOpen,
   onOpenChange
 }: SidebarMobileNavBarProps): JSX.Element => {
-  const breadcrumbs = useAtomValue(docBreadcrumbsAtom)
+  const breadcrumbs = useAtomValue(breadcrumbsAtom)
   const isMobile = useMediaQuery(Breakpoint.LG)
 
   return (

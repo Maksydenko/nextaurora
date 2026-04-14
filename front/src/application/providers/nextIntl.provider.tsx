@@ -12,6 +12,9 @@ interface NextIntlProviderProps {
   locale: string
 }
 
+/**
+ * Validates `locale`, loads messages, and wraps children with `next-intl` client provider.
+ */
 export const NextIntlProvider = async ({
   children,
   locale

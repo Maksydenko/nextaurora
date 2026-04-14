@@ -9,6 +9,9 @@ import { Time } from '@/shared/model'
 
 const STALE_TIME_IN_SECONDS = 60
 
+/**
+ * Returns a TanStack `QueryClient` with shared defaults (stale time, retry, dehydration rules).
+ */
 const makeQueryClient = (): QueryClient =>
   new QueryClient({
     defaultOptions: {
@@ -26,6 +29,13 @@ const makeQueryClient = (): QueryClient =>
     }
   })
 
+/**
+ * Browser singleton vs fresh server instance for React Query.
+ *
+ * @returns A `QueryClient` — new on the server each call, reused in the browser across suspends.
+ *
+ * @remarks Browser reuse avoids losing in-flight queries when React suspends before a boundary below the provider.
+ */
 export const getQueryClient = (): QueryClient => {
   let browserQueryClient: null | QueryClient = null
 

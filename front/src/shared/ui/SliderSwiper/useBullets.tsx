@@ -10,6 +10,14 @@ interface UseBulletsParams {
   slidesPerView: SwiperProps['slidesPerView']
 }
 
+/**
+ * Whether bullet-style pagination should be enabled for the current slide count and breakpoints.
+ *
+ * @param breakpoints - Optional Swiper breakpoints map; if omitted, only `slidesPerView` vs `slidesLength` is compared.
+ * @param slidesLength - Number of slides in the carousel.
+ * @param slidesPerView - Base `slidesPerView` when no breakpoints apply (default `1`).
+ * @returns `true` if any active configuration shows fewer slides than `slidesLength`.
+ */
 export const useBullets = ({
   breakpoints,
   slidesLength,

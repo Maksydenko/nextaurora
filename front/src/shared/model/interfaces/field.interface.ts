@@ -8,6 +8,11 @@ import {
 
 import { type Option } from './option.interface'
 
+/**
+ * Declarative field config for wrapping `react-hook-form` `Field` / inputs.
+ *
+ * @typeParam T - Form values type the field `name` path belongs to.
+ */
 export interface Field<T extends FieldValues> extends Omit<
   InputHTMLAttributes<HTMLInputElement>,
   | 'className'

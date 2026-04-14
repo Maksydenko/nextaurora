@@ -1,6 +1,9 @@
+/**
+ * Unit tests for {@link formatNumber} (`Intl.NumberFormat` wrapper).
+ */
 import { formatNumber } from '../formatNumber.util'
 
-describe('transformPxToRem', () => {
+describe('formatNumber', () => {
   it('correct int value', () => {
     expect(
       formatNumber({

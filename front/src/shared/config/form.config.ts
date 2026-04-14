@@ -1,3 +1,6 @@
+/**
+ * Shared validation limits and regex patterns for demo forms and inputs.
+ */
 export const formConfig = {
   description: {
     max: 400

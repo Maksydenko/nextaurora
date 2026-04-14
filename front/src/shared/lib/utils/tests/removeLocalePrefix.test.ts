@@ -1,3 +1,6 @@
+/**
+ * Unit tests for {@link removeLocalePrefix} (leading two-letter locale segment).
+ */
 import { removeLocalePrefix } from '../removeLocalePrefix.util'
 
 describe('removeLocalePrefix', () => {

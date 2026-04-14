@@ -6,6 +6,7 @@ const MINUTES_IN_HOUR = 60
 const SECONDS_IN_MINUTE = 60
 const MILLISECONDS_IN_SECOND = 1000
 
+/** Time-unit constants for durations, intervals, and scheduling. */
 export const Time = {
   DaysInWeek: DAYS_IN_WEEK,
   HoursInDay: HOURS_IN_DAY,
@@ -21,4 +22,6 @@ export const Time = {
   MinutesInHour: MINUTES_IN_HOUR,
   SecondsInMinute: SECONDS_IN_MINUTE
 } as const
+
+/** Union of {@link Time} numeric constants. */
 export type Time = ValueOf<typeof Time>

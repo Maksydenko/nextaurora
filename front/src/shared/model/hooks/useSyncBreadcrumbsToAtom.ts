@@ -6,12 +6,23 @@ import { useSetAtom } from 'jotai'
 
 import { type Option } from '../interfaces/option.interface'
 
-import { docBreadcrumbsAtom } from '../atoms/docBreadcrumbs.atom'
+import { breadcrumbsAtom } from '../atoms/breadcrumbs.atom'
 
+/**
+ * Keeps the document breadcrumbs atom in sync with the current trail for the shell layout.
+ *
+ * @param breadcrumbs - Items to show in the header; atom is cleared when the hook unmounts.
+ *
+ * @remarks Client-only (`useSetAtom`); mount in a client boundary near the shell that reads {@link breadcrumbsAtom}.
+ */
 export const useSyncBreadcrumbsToAtom = (breadcrumbs: Option[]): void => {
-  const setBreadcrumbs = useSetAtom(docBreadcrumbsAtom)
+  const setBreadcrumbs = useSetAtom(breadcrumbsAtom)
 
-  // Run before paint so the atom matches the current breadcrumbs immediately.
+  /**
+   * Writes the latest trail before paint and clears the atom on cleanup.
+   *
+   * @remarks Uses `useLayoutEffect` so the first paint already sees the correct breadcrumbs.
+   */
   useLayoutEffect(() => {
     setBreadcrumbs(breadcrumbs)
 

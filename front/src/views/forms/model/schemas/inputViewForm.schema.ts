@@ -5,6 +5,9 @@ import { formConfig } from '@/shared/config'
 const DESCRIPTION_MAX = formConfig.description.max
 const TITLE_MAX = formConfig.title.max
 
+/**
+ * Zod schema for the input showcase form (title and description).
+ */
 export const inputViewFormSchema = z.object({
   description: z
     .string()

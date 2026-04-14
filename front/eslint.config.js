@@ -1,5 +1,6 @@
 import perfectionist from 'eslint-plugin-perfectionist'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import tsdoc from 'eslint-plugin-tsdoc'
 import unusedImports from 'eslint-plugin-unused-imports'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -191,6 +192,8 @@ const eslintConfig = [
             ['\\/services$', '\\.service$'],
             ['\\/providers$', '\\.provider$'],
             ['\\/contexts$', '\\.context$'],
+            ['\\/documents$', '\\.document$'],
+            ['\\/shells$', '\\.shell$'],
             ['\\/utils$', '\\.util$'],
             ['\\/helpers$', '\\.helper$'],
             ['\\/schemas$', '\\.schema$'],
@@ -218,6 +221,15 @@ const eslintConfig = [
           varsIgnorePattern: '^_'
         }
       ]
+    }
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      tsdoc
+    },
+    rules: {
+      'tsdoc/syntax': 'warn'
     }
   }
 ]
