@@ -1,0 +1,75 @@
+---
+description: FSD-inspired architecture for Next.js (layers, segments, naming, file suffixes)
+alwaysApply: true
+---
+
+# Frontend architecture (FSD + Next.js)
+
+**Feature-Sliced Design** with Next.js-oriented naming. Conventions below apply to the **app source root** (the directory that contains the Next.js `app` router tree and FSD layers).
+
+## Layer mapping (Next.js vs classic FSD)
+
+**Layers** (FSD names, top → bottom of the import graph): **`app`**, **`pages`**, **`widgets`**, **`features`**, **`entities`**, **`shared`**. Do not use **`processes`**—it is deprecated in current FSD. Add only the layers your product needs. Here **`application`** = **`app`**, **`views`** = **`pages`**; **`widgets`**, **`features`**, **`entities`**, **`shared`** keep FSD folder names.
+
+- **Classic `app` → this project `application`**: bootstrap layer (global styles, providers, shells, document/layout glue, translations), not routable page UI.
+- **Classic `pages` → this project `views`**: route-level UI and slice `model`, composed from thin App Router entry files.
+- **Next.js `app` routes**: keep route modules (`page`, `layout`, …) minimal in **`*.tsx`** and import screen UI from the **`views`** layer via path alias.
+
+## Slices and segments
+
+- **Slice** = one business vertical: `<layer>/<sliceName>/` (e.g. a product area under **`views`**, a chrome block under **`widgets`**, a domain object under **`entities`**).
+- **Segments**: FSD defines five—**`ui`**, **`model`**, **`lib`**, **`api`**, **`config`**; use only those a slice needs.
+- **Public API**: each slice exposes a root **`index.ts`** (barrel). Prefer path aliases: `@/<layer>/<slice>/...` (configure alias root to match the repo).
+
+## `views` (replaces classic “pages”)
+
+- Primary screen UI lives in **`ui`** (top-level component file or folder when styles/parts are needed).
+- **`subpages`**: nested routes get a folder under **`ui/subpages/<kebab-case>/`** per nested URL segment.
+- **`model`** segment: slice-specific schemas, constants, utils, mocks, interfaces—grouped by **kind** (see [Grouping by kind inside segments](#grouping-by-kind-inside-segments)).
+
+## `application` (name for the FSD “app” layer)
+
+- Global **styles**, **providers**, **shells**, **document** wrappers, **i18n** message bundles—no routable page UI here; that stays in **`views`**.
+
+## `ui` and `parts` (widgets, entities, shared UI)
+
+- The main component for a folder may sit next to **`*.module.scss`** (e.g. a **PascalCase** folder whose primary file is matching **`*.tsx`**).
+- **Subcomponents** live in **`parts/`** beside that UI.
+- **`parts/index.ts`**: re-export all part modules.
+- **Part with own styles**: use a **PascalCase subfolder** containing the part component + its `*.module.scss`—avoid a loose `*.module.scss` next to a flat part file under `parts/`.
+- **No nested `parts`**: do not add `parts/.../parts/`; split into siblings or lift to parent `ui`.
+
+## Grouping by kind inside segments
+
+In **segments** that hold slice-local TypeScript (typically **`model`**, **`lib`**, **`config`**—see *Slices and segments* above), group files by **kind** into subfolders, each with an **`index.ts`** barrel—even for a single file of that kind.
+
+**Kind** subfolder names and matching **role suffixes** on **`*.ts`** / **`*.tsx`** (the dot-segment before the final extension) are defined by **`front/eslint.config.js`**: rule **`simple-import-sort/imports`** → **`groups`**.
+
+After the `@/` alias groups:
+- **`hooks`** is its own group (`\\/hooks$` plus **`use*`** basename patterns).
+- The following groups pair a **folder** pattern (`\\/segment$`) with a **file** pattern (`\\.role$` before **`*.ts`**); use that pairing and order as canonical.
+
+Not in those groups but used in this repo: **`atoms/`** with **`*.atom.ts`** (Jotai), and **`*.test.ts`** for unit tests.
+
+## File naming: sub-extensions
+
+- **Components** (`*.tsx` **without** a role suffix per [Grouping by kind inside segments](#grouping-by-kind-inside-segments)): **no** dot-style suffix; use **PascalCase** consistent with the main export. Any **`*.tsx`** with a role suffix is **Other kinds**, not this bullet.
+- **Hooks** (`*.ts` / **`*.tsx`**): **no** dot-style role suffix; file name is **`use` + PascalCase** (the `use` prefix is required for hooks).
+- **Other kinds**: **dot suffix** + folder as in [Grouping by kind inside segments](#grouping-by-kind-inside-segments) (and the **`atoms`** / **`*.test.ts`** note).
+
+## Folder and file casing
+
+- **App Router** URL segments and **`views/.../subpages/`** paths: **kebab-case** (e.g. `feature-name`, `parent-segment/nested-segment`).
+- **React component** folders and files: **PascalCase**; primary **`*.tsx`** has **no** role suffix and matches the main export basename.
+- **Non-component** folders and role-suffixed **`*.ts`** / **`*.tsx`**: **lowerCamelCase**; segment folder names and suffix pairing—[Grouping by kind inside segments](#grouping-by-kind-inside-segments).
+
+## Next.js routes vs `views`
+
+- **`app/**/page` (`*.tsx`)**: keep thin—locale, metadata, framework setup, then render from **`views`** (or equivalent alias).
+- **Shared page prop types** and cross-route types: **`shared/model`** (or your shared types layer), not **`application`**.
+
+## Cross-cutting notes
+
+- **i18n routing/config**: keep a small dedicated module; do not mix heavy domain logic into it.
+- Prefer **absolute imports** via the configured path alias.
+- New slices should **mirror** an existing slice’s **segments** (e.g. **`ui`**, **`model`**) and public **`index.ts`** layout rather than inventing a one-off structure.
