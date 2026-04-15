@@ -1,4 +1,4 @@
-import { type ValueOf } from '@/shared/model/types/valueOf.type'
+import type { ValueOf } from '@/shared/model/types/valueOf.type'
 
 /**
  * Theme mode values for `next-themes` and the theme switcher.

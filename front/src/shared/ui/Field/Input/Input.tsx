@@ -1,13 +1,13 @@
 'use client'
 
-import { type HTMLInputTypeAttribute, type JSX } from 'react'
+import type { HTMLInputTypeAttribute, JSX } from 'react'
 
 import { clsx } from 'clsx'
-import {
-  type FieldValues,
-  type Path,
-  type RegisterOptions,
-  type UseFormReturn
+import type {
+  FieldValues,
+  Path,
+  RegisterOptions,
+  UseFormReturn
 } from 'react-hook-form'
 
 import s from './Input.module.scss'

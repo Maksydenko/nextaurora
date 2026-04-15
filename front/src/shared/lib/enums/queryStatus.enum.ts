@@ -1,4 +1,4 @@
-import { type ValueOf } from '@/shared/model/types/valueOf.type'
+import type { ValueOf } from '@/shared/model/types/valueOf.type'
 
 /**
  * TanStack Query `fetchStatus` values surfaced in UI or tests.

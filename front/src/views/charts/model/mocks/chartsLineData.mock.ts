@@ -1,4 +1,4 @@
-import { type LineChartDatum } from '@/shared/ui/LineChart'
+import type { LineChartDatum } from '@/shared/ui/LineChart'
 
 /**
  * Sample time-series points for the line chart showcase.

@@ -3,11 +3,11 @@
 import { type HTMLInputTypeAttribute, type ReactNode, useId } from 'react'
 
 import { clsx } from 'clsx'
-import {
-  type FieldValues,
-  type Path,
-  type RegisterOptions,
-  type UseFormReturn
+import type {
+  FieldValues,
+  Path,
+  RegisterOptions,
+  UseFormReturn
 } from 'react-hook-form'
 
 import { formatLabel } from './utils'

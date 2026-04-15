@@ -1,6 +1,6 @@
-import { type SwiperProps } from 'swiper/react'
+import type { SwiperProps } from 'swiper/react'
 
-import { type Breakpoint } from './breakpoints.interface'
+import type { Breakpoint } from './breakpoints.interface'
 
 interface AddBreakpointDesktop {
   (

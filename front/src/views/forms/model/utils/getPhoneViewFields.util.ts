@@ -1,7 +1,7 @@
 import { formConfig } from '@/shared/config'
-import { type Field } from '@/shared/model'
+import type { Field } from '@/shared/model'
 
-import { type PhoneViewFormValues } from '../interfaces/phoneViewForm.interface'
+import type { PhoneViewFormValues } from '../interfaces/phoneViewForm.interface'
 
 /**
  * Field definitions for the phone showcase form.

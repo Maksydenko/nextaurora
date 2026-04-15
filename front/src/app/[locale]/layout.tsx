@@ -1,9 +1,9 @@
-import { type JSX, type ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
 
 import { RootDocument } from '@/application/documents'
 
-import { type Locale } from '@/shared/config'
-import { type PageProps } from '@/shared/model'
+import type { Locale } from '@/shared/config'
+import type { PageProps } from '@/shared/model'
 
 import { routing } from '@/i18n/routing'
 

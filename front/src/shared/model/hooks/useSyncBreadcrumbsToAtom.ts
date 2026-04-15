@@ -4,9 +4,9 @@ import { useLayoutEffect } from 'react'
 
 import { useSetAtom } from 'jotai'
 
-import { type Option } from '../interfaces/option.interface'
-
 import { breadcrumbsAtom } from '../atoms/breadcrumbs.atom'
+
+import type { Option } from '../interfaces/option.interface'
 
 /**
  * Keeps the document breadcrumbs atom in sync with the current trail for the shell layout.

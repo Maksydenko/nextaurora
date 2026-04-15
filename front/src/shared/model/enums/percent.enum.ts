@@ -1,4 +1,4 @@
-import { type ValueOf } from '@/shared/model/types/valueOf.type'
+import type { ValueOf } from '@/shared/model/types/valueOf.type'
 
 /**
  * Common percentage constants for layout, charts, and math helpers.

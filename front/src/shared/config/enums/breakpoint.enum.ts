@@ -1,4 +1,4 @@
-import { type ValueOf } from '@/shared/model/types/valueOf.type'
+import type { ValueOf } from '@/shared/model/types/valueOf.type'
 
 /**
  * Max-width breakpoints in pixels for responsive layout checks.

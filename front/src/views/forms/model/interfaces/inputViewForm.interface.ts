@@ -1,6 +1,6 @@
-import { type z } from 'zod'
+import type { z } from 'zod'
 
-import { type inputViewFormSchema } from '../schemas/inputViewForm.schema'
+import type { inputViewFormSchema } from '../schemas/inputViewForm.schema'
 
 /**
  * Values shape for the input showcase form, inferred from `inputViewFormSchema`.

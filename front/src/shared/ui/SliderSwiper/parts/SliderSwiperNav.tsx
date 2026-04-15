@@ -8,10 +8,10 @@ import {
 
 import { clsx } from 'clsx'
 import { HiChevronDown } from 'react-icons/hi2'
-import {
-  type SwiperClass,
-  type SwiperProps,
-  type SwiperRef
+import type {
+  SwiperClass,
+  SwiperProps,
+  SwiperRef
 } from 'swiper/react'
 
 import { Direction, SlideDirection } from '@/shared/model'

@@ -12,8 +12,7 @@ import { Direction, type Option } from '@/shared/model'
 
 import { useBullets } from './useBullets'
 
-import { type Breakpoints } from './breakpoints.interface'
-
+import type { Breakpoints } from './breakpoints.interface'
 import { SliderSwiperNav } from './parts'
 
 import s from './SliderSwiper.module.scss'

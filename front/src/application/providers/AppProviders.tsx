@@ -1,8 +1,8 @@
-import { type JSX, type ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
 
 import { ThemeProvider } from 'next-themes'
 
-import { type Locale } from '@/shared/config'
+import type { Locale } from '@/shared/config'
 
 import { NextIntlProvider } from './nextIntl.provider'
 import { QueryProvider } from './query/query.provider'

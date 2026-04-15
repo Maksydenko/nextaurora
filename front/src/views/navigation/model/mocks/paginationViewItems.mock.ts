@@ -1,4 +1,4 @@
-import { type PaginationViewItem } from '../interfaces/paginationViewItem.interface'
+import type { PaginationViewItem } from '../interfaces/paginationViewItem.interface'
 
 const itemsCount = 120
 

@@ -1,11 +1,11 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { clsx } from 'clsx'
 import { HiChevronRight } from 'react-icons/hi2'
 
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 
 import { Link } from '@/i18n/navigation'
 

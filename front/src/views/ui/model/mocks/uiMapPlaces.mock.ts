@@ -1,4 +1,4 @@
-import { type MapPlace } from '@/shared/ui'
+import type { MapPlace } from '@/shared/ui'
 
 /**
  * Demo markers around Kyiv for the map showcase.

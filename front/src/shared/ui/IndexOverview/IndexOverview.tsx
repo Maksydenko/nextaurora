@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX, type ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX, type ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
 
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 

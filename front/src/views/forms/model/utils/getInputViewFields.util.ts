@@ -1,7 +1,7 @@
 import { formConfig } from '@/shared/config'
-import { type Field } from '@/shared/model'
+import type { Field } from '@/shared/model'
 
-import { type InputViewFormValues } from '../interfaces/inputViewForm.interface'
+import type { InputViewFormValues } from '../interfaces/inputViewForm.interface'
 
 /**
  * Field definitions for the input showcase form (title and description).

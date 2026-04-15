@@ -4,7 +4,7 @@ import { type JSX, useMemo } from 'react'
 
 import { clsx } from 'clsx'
 
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 import { Accordion } from '@/shared/ui'
 
 import { Link, usePathname } from '@/i18n/navigation'

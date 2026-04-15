@@ -1,6 +1,6 @@
-import { type QueryClient } from '@tanstack/react-query'
+import type { QueryClient } from '@tanstack/react-query'
 
-import { type QueryKey } from '../enums/queryKey.enum'
+import type { QueryKey } from '../enums/queryKey.enum'
 
 /**
  * Invalidates multiple TanStack Query caches in parallel.

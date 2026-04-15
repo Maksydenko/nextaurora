@@ -1,12 +1,12 @@
-import { type HTMLInputTypeAttribute, type InputHTMLAttributes } from 'react'
+import type { HTMLInputTypeAttribute, InputHTMLAttributes } from 'react'
 
-import {
-  type FieldValues,
-  type Path,
-  type RegisterOptions
+import type {
+  FieldValues,
+  Path,
+  RegisterOptions
 } from 'react-hook-form'
 
-import { type Option } from './option.interface'
+import type { Option } from './option.interface'
 
 /**
  * Declarative field config for wrapping `react-hook-form` `Field` / inputs.

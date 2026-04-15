@@ -1,4 +1,4 @@
-import { type Locale } from '@/shared/config'
+import type { Locale } from '@/shared/config'
 
 /**
  * Next.js App Router page props with async `params` and optional `searchParams`.

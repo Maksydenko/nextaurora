@@ -1,4 +1,4 @@
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { ShellView } from '@/shared/ui'
 import { LineChart } from '@/shared/ui/LineChart'

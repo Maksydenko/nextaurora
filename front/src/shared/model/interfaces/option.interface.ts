@@ -1,6 +1,6 @@
-import { type ComponentType, type Key } from 'react'
+import type { ComponentType, Key } from 'react'
 
-import { type IconProps } from '../types'
+import type { IconProps } from '../types'
 
 /**
  * Label/value pair for options in selects, navigation, carousels, and similar UI.

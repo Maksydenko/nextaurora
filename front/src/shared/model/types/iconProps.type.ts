@@ -1,4 +1,4 @@
-import { type SVGProps } from 'react'
+import type { SVGProps } from 'react'
 
 /**
  * Props accepted by inline SVG icon components (`react-icons`, custom sprites, etc.).

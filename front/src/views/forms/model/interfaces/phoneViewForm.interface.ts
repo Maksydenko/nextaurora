@@ -1,6 +1,6 @@
-import { type z } from 'zod'
+import type { z } from 'zod'
 
-import { type phoneViewFormSchema } from '../schemas/phoneViewForm.schema'
+import type { phoneViewFormSchema } from '../schemas/phoneViewForm.schema'
 
 /**
  * Values shape for the phone showcase form, inferred from `phoneViewFormSchema`.

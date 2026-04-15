@@ -7,8 +7,7 @@ import { clsx } from 'clsx'
 import { MarkerClusterer } from '@googlemaps/markerclusterer'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
 
-import { type MapInnerProps } from '../map.interface'
-
+import type { MapInnerProps } from '../map.interface'
 import mapStyles from '../mapStyles.json'
 
 import s from '../Map.module.scss'

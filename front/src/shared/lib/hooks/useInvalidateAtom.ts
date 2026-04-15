@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai'
 import { queryClientAtom } from 'jotai-tanstack-query'
 
-import { type QueryKey } from '../enums/queryKey.enum'
+import type { QueryKey } from '../enums/queryKey.enum'
 
 /**
  * Builds an invalidator for TanStack Query using the Jotai-backed `QueryClient`.

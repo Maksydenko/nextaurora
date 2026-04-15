@@ -1,7 +1,7 @@
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { Pathname } from '@/shared/config'
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 import { IndexOverview } from '@/shared/ui'
 
 import { Link } from '@/i18n/navigation'

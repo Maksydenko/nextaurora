@@ -3,12 +3,12 @@
 import { type ReactNode, useEffect, useState } from 'react'
 
 import { clsx } from 'clsx'
-import {
-  type FieldValues,
-  type Path,
-  type PathValue,
-  type RegisterOptions,
-  type UseFormReturn
+import type {
+  FieldValues,
+  Path,
+  PathValue,
+  RegisterOptions,
+  UseFormReturn
 } from 'react-hook-form'
 import PhoneInputWithCountrySelect, {
   type Country,

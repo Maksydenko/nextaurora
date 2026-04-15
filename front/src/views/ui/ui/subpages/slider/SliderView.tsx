@@ -4,7 +4,7 @@ import { type JSX, type ReactNode, useMemo } from 'react'
 
 import { Card } from '@/entities/card'
 
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 import { ShellView,SliderSwiper } from '@/shared/ui'
 
 import { uiSliderBreadcrumbs, uiSliderSlides } from '../../../model'

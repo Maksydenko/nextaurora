@@ -1,4 +1,4 @@
-import { type ValueOf } from '@/shared/model/types/valueOf.type'
+import type { ValueOf } from '@/shared/model/types/valueOf.type'
 
 const DAYS_IN_WEEK = 7
 const HOURS_IN_DAY = 24

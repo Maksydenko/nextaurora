@@ -1,4 +1,4 @@
-import { type UiSliderSlideContent } from '../interfaces/uiSliderSlideContent.interface'
+import type { UiSliderSlideContent } from '../interfaces/uiSliderSlideContent.interface'
 
 /**
  * Placeholder slides for the Swiper UI showcase.

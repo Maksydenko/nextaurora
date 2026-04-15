@@ -1,5 +1,5 @@
 import { Pathname } from '@/shared/config'
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 
 /**
  * Breadcrumb trail for the pagination demo page.

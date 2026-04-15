@@ -1,7 +1,6 @@
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
-import { type MapProps } from './map.interface'
-
+import type { MapProps } from './map.interface'
 import { MapInner } from './parts'
 
 const markerPinDataUrl = (): string => {

@@ -1,10 +1,10 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import dynamic from 'next/dynamic'
 
-import { type MapPlace } from '@/shared/ui/Map/Map'
+import type { MapPlace } from '@/shared/ui/Map/Map'
 
 const MapLazy = dynamic(
   () => import('@/shared/ui/Map/Map').then(mod => ({ default: mod.Map })),

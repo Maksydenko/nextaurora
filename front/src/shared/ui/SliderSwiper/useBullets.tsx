@@ -1,8 +1,8 @@
-import { type SwiperProps } from 'swiper/react'
+import type { SwiperProps } from 'swiper/react'
 
 import { addBreakpointDesktop } from './addBreakpointDesktop.util'
 
-import { type Breakpoint, type Breakpoints } from './breakpoints.interface'
+import type { Breakpoint, Breakpoints } from './breakpoints.interface'
 
 interface UseBulletsParams {
   breakpoints?: Breakpoints

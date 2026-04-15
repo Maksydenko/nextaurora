@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-import { type SetState } from '@/shared/model'
+import type { SetState } from '@/shared/model'
 
 interface UseScrollLockReturn {
   isScrollLocked: boolean

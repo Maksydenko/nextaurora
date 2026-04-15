@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 import { flexRender, type Table as TTable } from '@tanstack/react-table'
 

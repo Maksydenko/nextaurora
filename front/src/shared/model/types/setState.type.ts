@@ -1,4 +1,4 @@
-import { type Dispatch, type SetStateAction } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
 
 /**
  * Alias for React’s `Dispatch<SetStateAction<T>>` used in shared hook return types.

@@ -1,4 +1,4 @@
-import { type SwiperProps } from 'swiper/react'
+import type { SwiperProps } from 'swiper/react'
 
 /**
  * Normalized Swiper breakpoint entry after resolving active flag and slide count.

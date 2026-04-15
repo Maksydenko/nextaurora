@@ -8,7 +8,7 @@ import {
 
 import { clsx } from 'clsx'
 
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 
 import { Image } from '../Image/Image'
 import { Loader } from '../Loader/Loader'
