@@ -1,7 +1,9 @@
 import { Pathname } from '@/shared/config'
 import { type Option } from '@/shared/model'
 
-/** Breadcrumb trail for the charts overview demo page. */
+/**
+ * Breadcrumb trail for the charts overview demo page.
+ */
 export const chartsOverviewBreadcrumbs: Option[] = [
   {
     id: 'home',
@@ -15,7 +17,9 @@ export const chartsOverviewBreadcrumbs: Option[] = [
   }
 ]
 
-/** Breadcrumb trail for the line chart subpage. */
+/**
+ * Breadcrumb trail for the line chart subpage.
+ */
 export const chartsLineBreadcrumbs: Option[] = [
   {
     id: 'home',

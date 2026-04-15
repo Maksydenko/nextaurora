@@ -1,7 +1,9 @@
 import { Pathname } from '@/shared/config'
 import { type Option } from '@/shared/model'
 
-/** Nested sidebar navigation groups for the app chrome. */
+/**
+ * Nested sidebar navigation groups for the app chrome.
+ */
 export const sidebarNavGroups: Option<Option[]>[] = [
   {
     id: 'charts',

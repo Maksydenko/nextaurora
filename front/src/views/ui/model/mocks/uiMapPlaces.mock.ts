@@ -1,6 +1,8 @@
 import { type MapPlace } from '@/shared/ui'
 
-/** Demo markers around Kyiv for the map showcase. */
+/**
+ * Demo markers around Kyiv for the map showcase.
+ */
 export const uiMapViewPlaces: MapPlace[] = [
   {
     id: '1',

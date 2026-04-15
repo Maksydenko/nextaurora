@@ -7,5 +7,7 @@ import { type inputViewFormSchema } from '../schemas/inputViewForm.schema'
  */
 export type InputViewFormValues = z.infer<typeof inputViewFormSchema>
 
-/** Re-exports {@link inputViewFormSchema} for consumers that import from the interface barrel. */
+/**
+ * Re-exports {@link inputViewFormSchema} for consumers that import from the interface barrel.
+ */
 export { inputViewFormSchema } from '../schemas/inputViewForm.schema'

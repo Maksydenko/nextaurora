@@ -7,10 +7,7 @@ import { type PageProps } from '@/shared/model'
 
 import { routing } from '@/i18n/routing'
 
-// Dynamic params
 export const dynamicParams = false
-
-// Static params
 
 interface GenerateStaticParamsReturn {
   locale: Locale
@@ -20,8 +17,6 @@ export const generateStaticParams = (): GenerateStaticParamsReturn[] =>
   routing.locales.map(locale => ({
     locale
   }))
-
-// Layout
 
 interface LocaleLayoutProps extends PageProps {
   children: ReactNode

@@ -7,5 +7,7 @@ import { type phoneViewFormSchema } from '../schemas/phoneViewForm.schema'
  */
 export type PhoneViewFormValues = z.infer<typeof phoneViewFormSchema>
 
-/** Re-exports {@link phoneViewFormSchema} for consumers that import from the interface barrel. */
+/**
+ * Re-exports {@link phoneViewFormSchema} for consumers that import from the interface barrel.
+ */
 export { phoneViewFormSchema } from '../schemas/phoneViewForm.schema'

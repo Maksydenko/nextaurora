@@ -1,7 +1,9 @@
 import { Pathname } from '@/shared/config'
 import { type Option } from '@/shared/model'
 
-/** Breadcrumb trail for the UI components overview page. */
+/**
+ * Breadcrumb trail for the UI components overview page.
+ */
 export const uiOverviewBreadcrumbs: Option[] = [
   {
     id: 'home',
@@ -15,7 +17,9 @@ export const uiOverviewBreadcrumbs: Option[] = [
   }
 ]
 
-/** Breadcrumb trail for the slider demo subpage. */
+/**
+ * Breadcrumb trail for the slider demo subpage.
+ */
 export const uiSliderBreadcrumbs: Option[] = [
   {
     id: 'home',
@@ -34,7 +38,9 @@ export const uiSliderBreadcrumbs: Option[] = [
   }
 ]
 
-/** Breadcrumb trail for the table demo subpage. */
+/**
+ * Breadcrumb trail for the table demo subpage.
+ */
 export const uiTableBreadcrumbs: Option[] = [
   {
     id: 'home',
@@ -53,7 +59,9 @@ export const uiTableBreadcrumbs: Option[] = [
   }
 ]
 
-/** Breadcrumb trail for the semi-circle progress demo subpage. */
+/**
+ * Breadcrumb trail for the semi-circle progress demo subpage.
+ */
 export const uiSemiCircleProgressBreadcrumbs: Option[] = [
   {
     id: 'home',
@@ -72,7 +80,9 @@ export const uiSemiCircleProgressBreadcrumbs: Option[] = [
   }
 ]
 
-/** Breadcrumb trail for the timer demo subpage. */
+/**
+ * Breadcrumb trail for the timer demo subpage.
+ */
 export const uiTimerBreadcrumbs: Option[] = [
   {
     id: 'home',
@@ -91,7 +101,9 @@ export const uiTimerBreadcrumbs: Option[] = [
   }
 ]
 
-/** Breadcrumb trail for the map demo subpage. */
+/**
+ * Breadcrumb trail for the map demo subpage.
+ */
 export const uiMapBreadcrumbs: Option[] = [
   {
     id: 'home',

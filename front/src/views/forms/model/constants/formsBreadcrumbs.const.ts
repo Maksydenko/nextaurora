@@ -1,7 +1,9 @@
 import { Pathname } from '@/shared/config'
 import { type Option } from '@/shared/model'
 
-/** Breadcrumb trail for the forms overview demo page. */
+/**
+ * Breadcrumb trail for the forms overview demo page.
+ */
 export const formsOverviewBreadcrumbs: Option[] = [
   {
     id: 'home',
@@ -15,7 +17,9 @@ export const formsOverviewBreadcrumbs: Option[] = [
   }
 ]
 
-/** Breadcrumb trail for the input form subpage. */
+/**
+ * Breadcrumb trail for the input form subpage.
+ */
 export const formsInputBreadcrumbs: Option[] = [
   {
     id: 'home',
@@ -34,7 +38,9 @@ export const formsInputBreadcrumbs: Option[] = [
   }
 ]
 
-/** Breadcrumb trail for the phone form subpage. */
+/**
+ * Breadcrumb trail for the phone form subpage.
+ */
 export const formsPhoneBreadcrumbs: Option[] = [
   {
     id: 'home',

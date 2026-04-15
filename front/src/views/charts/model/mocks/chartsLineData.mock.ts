@@ -1,6 +1,8 @@
 import { type LineChartDatum } from '@/shared/ui/LineChart'
 
-/** Sample time-series points for the line chart showcase. */
+/**
+ * Sample time-series points for the line chart showcase.
+ */
 export const chartsLineViewData: LineChartDatum[] = [
   {
     additional: 18,

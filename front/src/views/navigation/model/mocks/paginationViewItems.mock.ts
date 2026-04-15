@@ -2,7 +2,9 @@ import { type PaginationViewItem } from '../interfaces/paginationViewItem.interf
 
 const itemsCount = 120
 
-/** Synthetic pagination rows for the navigation demo table. */
+/**
+ * Synthetic pagination rows for the navigation demo table.
+ */
 export const paginationViewItems: PaginationViewItem[] = Array.from(
   { length: itemsCount },
   (_, i) => {
@@ -18,5 +20,7 @@ export const paginationViewItems: PaginationViewItem[] = Array.from(
   }
 )
 
-/** Page size used with {@link paginationViewItems} in the pagination demo. */
+/**
+ * Page size used with {@link paginationViewItems} in the pagination demo.
+ */
 export const paginationViewItemsPerPage = 12

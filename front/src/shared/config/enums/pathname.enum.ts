@@ -1,6 +1,8 @@
 import { type ValueOf } from '@/shared/model/types/valueOf.type'
 
-/** App route pathnames without locale prefix (used with i18n navigation). */
+/**
+ * App route pathnames without locale prefix (used with i18n navigation).
+ */
 export const Pathname = {
   Charts: '/charts',
   ChartsLine: '/charts/line',
@@ -17,6 +19,4 @@ export const Pathname = {
   UITable: '/ui/table',
   UITimer: '/ui/timer'
 } as const
-
-/** Union of {@link Pathname} string literals. */
 export type Pathname = ValueOf<typeof Pathname>

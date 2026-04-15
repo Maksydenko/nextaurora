@@ -149,7 +149,7 @@ export const MapInner = ({
   if (!isLoaded) {
     return (
       <div className={clsx(s.map, s.map_loading, className)} role="status">
-        <p className={s.map__message}>Loading map…</p>
+        <p className={s.map__message}>Loading map...</p>
       </div>
     )
   }

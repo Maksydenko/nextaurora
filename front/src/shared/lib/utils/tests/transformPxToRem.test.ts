@@ -1,5 +1,5 @@
 /**
- * Unit tests for {@link transformPxToRem} (px → rem using root font size).
+ * Unit tests for {@link transformPxToRem} (px to rem using root font size).
  */
 import { FontSize } from '@/shared/config'
 

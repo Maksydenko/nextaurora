@@ -16,7 +16,9 @@ export interface Breakpoints {
   [width: number]: BreakpointsValue
 }
 
-/** Per-breakpoint Swiper options plus optional active flag used when flattening configs. */
+/**
+ * Per-breakpoint Swiper options plus optional active flag used when flattening configs.
+ */
 interface BreakpointsValue extends SwiperProps {
   isBreakpoint?: boolean
 }

@@ -16,7 +16,9 @@ interface PaginationProps extends Omit<ReactPaginateProps, 'pageCount'> {
   className?: string
   itemsPerPage: number
   itemsPerTotal: number
-  /** 1-based page from the server (keeps pager in sync with RSC after redirects). */
+  /**
+   * 1-based page from the server (keeps pager in sync with RSC after redirects).
+   */
   page?: number
   pageRangeDisplayed?: number
 }
