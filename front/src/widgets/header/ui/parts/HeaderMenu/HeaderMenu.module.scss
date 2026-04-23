@@ -28,7 +28,7 @@
         background: $gray9005;
       }
 
-       @include on-dark {
+      @include on-dark {
         &:hover,
         &:focus-visible {
           background: $white10;
@@ -122,7 +122,7 @@
     border-left: rem(1) solid var(--border-color);
     box-shadow: rem(-4) 0 rem(24) $black14;
 
-     @include on-dark {
+    @include on-dark {
       box-shadow: rem(-4) 0 rem(32) $black45;
     }
 
@@ -153,10 +153,10 @@
   }
 
   // .headerMenu__localeSwitcher
-  &__localeSwitcher {
-  }
-
+  &__localeSwitcher,
   // .headerMenu__themeSwitcher
   &__themeSwitcher {
+    display: flex;
+    align-items: center;
   }
 }

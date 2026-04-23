@@ -2,15 +2,12 @@
 
 import type { HTMLInputTypeAttribute, JSX } from 'react'
 
-import { clsx } from 'clsx'
 import type {
   FieldValues,
   Path,
   RegisterOptions,
   UseFormReturn
 } from 'react-hook-form'
-
-import s from './Input.module.scss'
 
 interface InputProps<T extends FieldValues> {
   'aria-describedby'?: string
@@ -58,7 +55,7 @@ export const Input = <T extends FieldValues>({
       aria-invalid={!!error}
       aria-required={Boolean(required ?? options?.required)}
       autoComplete={name}
-      className={clsx(s.input, className)}
+      className={className}
       disabled={disabled}
       id={name}
       maxLength={maxLength}

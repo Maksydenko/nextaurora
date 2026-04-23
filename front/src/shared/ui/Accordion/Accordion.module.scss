@@ -10,7 +10,7 @@
   &__item {
     overflow: hidden;
 
-    & + .accordion__item {
+    + .accordion__item {
       margin-top: rem(32);
     }
 
@@ -69,8 +69,10 @@
       outline-offset: rem(2);
     }
 
-    &[data-state='open'] .accordion__chevron {
-      rotate: 180deg;
+    &[data-state='open'] {
+      .accordion__chevron {
+        rotate: 180deg;
+      }
     }
   }
 

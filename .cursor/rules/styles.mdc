@@ -1,0 +1,62 @@
+---
+description: Frontend style conventions for SCSS Modules, tokens, responsive rules, and stylelint hygiene
+alwaysApply: true
+---
+
+# Frontend style conventions
+
+Conventions for the frontend styling layer in the `front` source tree. This covers SCSS Modules, global styles boundaries, naming, responsive rules, and stylelint hygiene.
+
+## Source of truth
+
+- Treat **`front/.stylelintrc`** as the full source of truth for style linting rules.
+- If this document and stylelint configuration disagree, **stylelint wins**.
+
+## Style scope and structure
+
+- Use **SCSS Modules** for component-local styles (`*.module.scss`) colocated with UI components.
+- Keep global styles and shared Sass setup only in **`application/styles`**.
+- Do not add global resets or global tag styling inside component module styles.
+
+## Naming inside module styles
+
+- Use one BEM-like pattern: **`block`**, **`&__element`**, **`&_modifier`**. Keep class tokens **lowerCamelCase**. The root **`block`** class should match the component filename stem.
+- When nesting uses **`&`** shorthand and the **full** class token does not appear on the selector line, put **`// .block__element`** immediately above **`&__element`** (that comment line: token only, no blank line before the rule). **Omit** that comment when the selector line already contains **`.block__element`** literally. Do **not** add prose, parentheses, or cross-references on the token-only comment line; put any extra context on a **separate** comment line **above** it.
+- When several **`&__element`** branches are **comma-grouped** into one rule block, put **one** token-only comment immediately above **each** branch’s **`&__…`** (same idea as the single-branch rule). **Example:** **`// .block__a`** / **`&__a,`** / **`// .block__b`** / **`&__b {`**. Do **not** put several full-class tokens in **one** comment line.
+
+## Tokens and values
+
+- Prefer shared design tokens from `application/styles/module` over ad-hoc literals.
+- Prefer helper units from the module (e.g. **`rem()`**) for spacing and typography.
+- Avoid hard-coded magic values when the same intent already exists in shared variables.
+- Avoid pixel units where a relative/tokenized value can express the same intent.
+- For fractional values, prefer decimal notation over equivalent percentages when both are valid.
+
+## Responsive rules
+
+- Keep a mobile-first baseline and scale layout via shared breakpoint variables.
+- Use breakpoints from the shared vars layer instead of ad-hoc media values.
+- Keep media-query strategy consistent within one module (avoid mixed, conflicting patterns in the same file).
+- For pixel breakpoint edges, use the **`*.98`** convention so adjacent ranges do not overlap (e.g. **`max-width: 767.98px`**).
+
+## Layout and spacing
+
+- Prefer module classes and class composition over inline styles in JSX.
+- Prefer layout spacing with **`gap`** in flex/grid containers instead of directional margins.
+- If margins are unavoidable, prefer **trailing-edge** physical longhands over **leading-edge** ones.
+- For centering in grid layouts, prefer **`place-items: center`**.
+- Do **not** use **logical-axis** CSS (property names that use **`inline`** or **`block`** as an axis segment); prefer **physical** longhands. The **`inset`** shorthand alone is **allowed**.
+
+## Nesting and compound selectors
+
+- After **`&`**, do not keep **descendant** chains or other long compounds on **one line**; **split with nesting** under **`&`**. Prefer nested blocks over one long **`&`** chain when another class shares the selector line. When a nested selector **starts with a combinator**, omit a redundant leading **`&`**. For token-only comments, follow [Naming inside module styles](#naming-inside-module-styles). **One illustration:** **`+ .block__item`** nested under **`&__item`**, not **`& + &`** for the same entity.
+
+## Third-party overrides
+
+- Use `:global(...)` only when targeting third-party library markup.
+- Use `!important` only for third-party overrides that cannot be resolved by specificity.
+- When using either pattern above, add a short inline comment explaining why it is required.
+
+## Stylelint hygiene
+
+- Run the package stylelint script after edits; committed code must pass with zero warnings if CI enforces it.

@@ -18,18 +18,6 @@
     transition: color 0.2s ease;
   }
 
-  // .pagination__page
-  &__page {
-  }
-
-  // .pagination__pageLink
-  &__pageLink {
-  }
-
-  // .pagination__previous
-  &__previous {
-  }
-
   // .pagination__previousLink
   &__previousLink {
     .pagination__icon {
@@ -37,37 +25,11 @@
     }
   }
 
-  // .pagination__next
-  &__next {
-  }
-
   // .pagination__nextLink
   &__nextLink {
     .pagination__icon {
       rotate: -90deg;
     }
-  }
-
-  &__previousLink:not(.pagination__disabledLink),
-  &__nextLink:not(.pagination__disabledLink) {
-    .pagination__icon {
-      color: var(--accent-color);
-    }
-
-    &:hover,
-    &:focus-visible {
-      .pagination__icon {
-        color: var(--main-color);
-      }
-    }
-  }
-
-  // .pagination__break
-  &__break {
-  }
-
-  // .pagination__breakLink
-  &__breakLink {
   }
 
   // .pagination__pageLink,
@@ -78,8 +40,6 @@
   &__nextLink,
   // .pagination__breakLink
   &__breakLink {
-
-    // @extend %btn;
     display: grid;
     place-items: center;
     width: em(40, 16);
@@ -103,10 +63,6 @@
     }
   }
 
-  // .pagination__active
-  &__active {
-  }
-
   // .pagination__activeLink
   &__activeLink {
     font-weight: 600;
@@ -121,24 +77,42 @@
     }
   }
 
-  // .pagination__disabled
-  &__disabled {
-  }
-
-  // .pagination__disabledLink (page cells; prev/next use icon rules above)
-  &__pageLink.pagination__disabledLink {
-    cursor: not-allowed;
-    opacity: 0.4;
-  }
-
-  &__previousLink.pagination__disabledLink,
-  &__nextLink.pagination__disabledLink {
-    cursor: not-allowed;
-
-    /* stylelint-disable-next-line no-descending-specificity -- rule order vs. :hover block above */
-    .pagination__icon {
-      color: var(--muted-color);
+  // .pagination__pageLink
+  &__pageLink {
+    // .pagination__pageLink.pagination__disabledLink
+    &.pagination__disabledLink {
+      cursor: not-allowed;
       opacity: 0.4;
+    }
+  }
+
+  // .pagination__previousLink
+  // .pagination__nextLink
+  &__previousLink,
+  &__nextLink {
+    &:not(.pagination__disabledLink) {
+      .pagination__icon {
+        color: var(--accent-color);
+      }
+
+      &:hover,
+      &:focus-visible {
+        .pagination__icon {
+          color: var(--main-color);
+        }
+      }
+    }
+
+    // .pagination__previousLink.pagination__disabledLink
+    // .pagination__nextLink.pagination__disabledLink
+    &.pagination__disabledLink {
+      cursor: not-allowed;
+
+      /* stylelint-disable-next-line no-descending-specificity */
+      .pagination__icon {
+        color: var(--muted-color);
+        opacity: 0.4;
+      }
     }
   }
 }
