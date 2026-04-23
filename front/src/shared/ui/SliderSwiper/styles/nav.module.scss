@@ -11,9 +11,9 @@
     width: em(40, 40);
     height: em(40, 40);
     font-size: rem(40);
-    color: var(--mainColor);
-    background: var(--mutedBg);
-    border: rem(1) solid var(--borderColor);
+    color: var(--main-color);
+    background: var(--muted-bg);
+    border: rem(1) solid var(--border-color);
     border-radius: em(4, 40);
     translate: 0 -50%;
     transition: opacity 0.2s ease;
@@ -33,7 +33,7 @@
 
     // .sliderSwiper__button_prev
     &_prev {
-      left: rem(calc($containerPadding / 2));
+      left: rem(calc($container-padding / 2));
 
       // .sliderSwiper__icon
       .sliderSwiper__icon {
@@ -43,7 +43,7 @@
 
     // .sliderSwiper__button_next
     &_next {
-      right: rem(calc($containerPadding / 2));
+      right: rem(calc($container-padding / 2));
 
       // .sliderSwiper__icon
       .sliderSwiper__icon {

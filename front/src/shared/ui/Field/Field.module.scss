@@ -13,7 +13,7 @@
     font-size: rem(15);
     font-weight: 500;
     line-height: em(35, 15);
-    color: var(--mainColor);
+    color: var(--main-color);
   }
 
   // .field__control
@@ -22,10 +22,10 @@
     font-size: rem(15);
     font-weight: 400;
     line-height: 1;
-    color: var(--mainColor);
-    background: var(--fieldBg);
+    color: var(--main-color);
+    background: var(--field-bg);
     border-radius: rem(4);
-    box-shadow: 0 0 0 rem(1) var(--fieldShadow);
+    box-shadow: 0 0 0 rem(1) var(--field-shadow);
     transition: box-shadow 0.2s ease;
 
     input {
@@ -48,13 +48,13 @@
       }
 
       &::placeholder {
-        color: var(--mutedColor);
+        color: var(--muted-color);
         opacity: 0.8;
       }
 
       &::selection {
-        color: var(--fieldSelectionColor);
-        background: var(--fieldSelectionBg);
+        color: var(--field-selection-color);
+        background: var(--field-selection-bg);
       }
     }
   }
@@ -64,7 +64,7 @@
     font-size: rem(13);
     font-weight: 400;
     line-height: 1.35;
-    color: var(--mainColor);
+    color: var(--main-color);
     text-align: start;
     opacity: 0.8;
   }
@@ -82,11 +82,11 @@
   &:not(:has(:disabled)):not(:has([aria-invalid='true'])) {
     .field__control {
       &:hover {
-        box-shadow: 0 0 0 rem(1) var(--fieldShadowStrong);
+        box-shadow: 0 0 0 rem(1) var(--field-shadow-strong);
       }
 
       &:focus-within {
-        box-shadow: 0 0 0 rem(2) var(--fieldShadowStrong);
+        box-shadow: 0 0 0 rem(2) var(--field-shadow-strong);
       }
     }
   }

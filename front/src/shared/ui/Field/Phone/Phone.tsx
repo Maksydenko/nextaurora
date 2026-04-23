@@ -3,12 +3,12 @@
 import { type ReactNode, useEffect, useState } from 'react'
 
 import { clsx } from 'clsx'
-import {
-  type FieldValues,
-  type Path,
-  type PathValue,
-  type RegisterOptions,
-  type UseFormReturn
+import type {
+  FieldValues,
+  Path,
+  PathValue,
+  RegisterOptions,
+  UseFormReturn
 } from 'react-hook-form'
 import PhoneInputWithCountrySelect, {
   type Country,
@@ -40,7 +40,7 @@ export const Phone = <T extends FieldValues>({
   options,
   placeholder,
   required,
-  ...props
+  ...rest
 }: PhoneProps<T>): ReactNode => {
   const [currentCountry, setCurrentCountry] = useState<Country | undefined>()
   const {
@@ -58,7 +58,11 @@ export const Phone = <T extends FieldValues>({
   } = register(name, options)
   const phoneValue = watch(name)
 
-  // Keep the country selector aligned with the dial code in the current value.
+  /**
+   * Updates the default country from the E.164 value so the flag selector matches the dial code.
+   *
+   * @remarks Parses the calling-code segment after the leading `+`; no-op when the value is empty.
+   */
   useEffect(() => {
     if (!phoneValue) {
       return
@@ -94,7 +98,7 @@ export const Phone = <T extends FieldValues>({
         setValue(name, value as PathValue<T, Path<T>>)
         trigger(name)
       }}
-      {...props}
+      {...rest}
       {...restRegister}
     />
   )

@@ -1,6 +1,6 @@
-import { type SwiperProps } from 'swiper/react'
+import type { SwiperProps } from 'swiper/react'
 
-import { type Breakpoint } from './breakpoints.interface'
+import type { Breakpoint } from './breakpoints.interface'
 
 interface AddBreakpointDesktop {
   (
@@ -9,6 +9,15 @@ interface AddBreakpointDesktop {
   ): Breakpoint[]
 }
 
+/**
+ * Prepends a synthetic “desktop” breakpoint and shifts slide counts for Swiper breakpoint math.
+ *
+ * @param slidesPerView - Base slides-per-view used for the widest synthetic step.
+ * @param breakpoints - Mutable array of breakpoint descriptors; first entry is duplicated at the front.
+ * @returns The same array reference after in-place mutation.
+ *
+ * @remarks Mutates `breakpoints` via `unshift` and a forward pass.
+ */
 export const addBreakpointDesktop: AddBreakpointDesktop = (
   slidesPerView,
   breakpoints

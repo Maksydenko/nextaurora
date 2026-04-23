@@ -1,3 +1,6 @@
+/**
+ * Unit tests for {@link transformPxToRem} (px to rem using root font size).
+ */
 import { FontSize } from '@/shared/config'
 
 import { transformPxToRem } from '../transformPxToRem.util'

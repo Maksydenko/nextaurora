@@ -1,3 +1,7 @@
+/**
+ * Jest stub for static image imports (`next/image` testing recipe).
+ */
+
 // Read more at "Handling stylesheets and image imports" on https://nextjs.org/docs/testing
 
 module.exports = {

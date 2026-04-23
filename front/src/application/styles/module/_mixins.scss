@@ -1,80 +1,80 @@
 @use './utils';
 
 // Responsive value
-@mixin responsiveValue(
+@mixin responsive-value(
   $property,
-  $startSize,
-  $minSize,
+  $start-size,
+  $min-size,
   $type: 1,
-  $widthFrom,
-  $widthTo
+  $width-from,
+  $width-to
 ) {
   // For calc();
-  $addSize: calc(($startSize - $minSize) / 16);
+  $add-size: calc(($start-size - $min-size) / 16);
 
-  $calcSize: calc(
-    #{utils.rem($minSize)} + #{$addSize} * (100vw - #{utils.rem($widthTo)}) /
-      #{calc($widthFrom / 16) - calc($widthTo / 16)}
+  $calc-size: calc(
+    #{utils.rem($min-size)} + #{$add-size} * (100vw - #{utils.rem($width-to)}) /
+      #{calc($width-from / 16) - calc($width-to / 16)}
   );
 
   // If there is less container
   @if $type == 1 {
-    #{$property}: utils.rem($startSize);
+    #{$property}: utils.rem($start-size);
 
-    @media (max-width: ($widthFrom + px)) {
-      #{$property}: $calcSize;
+    @media (max-width: ($width-from + px)) {
+      #{$property}: $calc-size;
     }
   }
   // If there is more container
   @else if $type == 2 {
-    #{$property}: utils.rem($startSize);
+    #{$property}: utils.rem($start-size);
 
-    @media (min-width: ($widthFrom + px)) {
-      #{$property}: $calcSize;
+    @media (min-width: ($width-from + px)) {
+      #{$property}: $calc-size;
     }
   }
   // Always
   @else {
-    #{$property}: $calcSize;
+    #{$property}: $calc-size;
   }
 }
 
 // Themed CSS variable on #html
-@mixin themeVar($property, $lightValue, $darkValue) {
+@mixin theme-var($property, $light-value, $dark-value) {
   #html {
     &[data-theme='light'] {
-      --#{$property}: #{$lightValue};
+      --#{$property}: #{$light-value};
     }
 
     &[data-theme='dark'] {
-      --#{$property}: #{$darkValue};
+      --#{$property}: #{$dark-value};
     }
   }
 }
 
 // Dark from module scope
-@mixin onDark {
+@mixin on-dark {
   @at-root :global(#html[data-theme='dark']) & {
     @content;
   }
 }
 
 // Light from module scope
-@mixin onLight {
+@mixin on-light {
   @at-root :global(#html[data-theme='light']) & {
     @content;
   }
 }
 
 // Text: single-line ellipsis
-@mixin textNowrap {
+@mixin text-nowrap {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 // Text: multiline clamp
-@mixin lineClamp($lines) {
+@mixin line-clamp($lines) {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: $lines;
@@ -82,21 +82,21 @@
 }
 
 // Text: vertical writing mode
-@mixin textVertical {
+@mixin text-vertical {
   writing-mode: vertical-lr;
   text-orientation: upright;
   rotate: -180deg;
 }
 
 // Text: gradient fill
-@mixin textGradient($gradient) {
+@mixin text-gradient($gradient) {
   background: $gradient;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 // Text: stroke outline
-@mixin textStroke($size, $color, $fillColor: transparent) {
+@mixin text-stroke($size, $color, $fill-color: transparent) {
   -webkit-text-stroke: $size $color;
-  -webkit-text-fill-color: $fillColor;
+  -webkit-text-fill-color: $fill-color;
 }

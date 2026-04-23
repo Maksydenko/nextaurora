@@ -1,3 +1,6 @@
+/**
+ * Unit tests for {@link checkValidTld} (public suffix list check).
+ */
 import { checkValidTld } from '../checkValidTld.util'
 
 describe('checkValidTld', () => {

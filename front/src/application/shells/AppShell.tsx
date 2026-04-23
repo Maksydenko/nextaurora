@@ -1,6 +1,12 @@
 'use client'
 
-import { type JSX, type ReactNode, useCallback, useEffect, useState } from 'react'
+import {
+  type JSX,
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useState
+} from 'react'
 
 import { Header } from '@/widgets/header'
 import { Sidebar } from '@/widgets/sidebar'
@@ -23,10 +29,18 @@ export const AppShell = ({ children }: AppShellProps): JSX.Element => {
     setSidebarOpen(false)
   }, [])
 
+  /**
+   * Collapses the sidebar whenever the pathname changes (including locale).
+   */
   useEffect(() => {
     closeSidebar()
   }, [pathname, closeSidebar])
 
+  /**
+   * Collapses the sidebar when the viewport crosses the desktop breakpoint.
+   *
+   * @remarks The mobile drawer is not used at `lg` and up; closing avoids a stale open state after resize.
+   */
   useEffect(() => {
     const mq = window.matchMedia(
       `(min-width: ${String(Math.ceil(Breakpoint.LG))}px)`

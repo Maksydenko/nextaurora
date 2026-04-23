@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import Error from 'next/error'
 

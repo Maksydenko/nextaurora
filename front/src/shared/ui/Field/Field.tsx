@@ -3,11 +3,11 @@
 import { type HTMLInputTypeAttribute, type ReactNode, useId } from 'react'
 
 import { clsx } from 'clsx'
-import {
-  type FieldValues,
-  type Path,
-  type RegisterOptions,
-  type UseFormReturn
+import type {
+  FieldValues,
+  Path,
+  RegisterOptions,
+  UseFormReturn
 } from 'react-hook-form'
 
 import { formatLabel } from './utils'
@@ -40,7 +40,7 @@ export const Field = <T extends FieldValues>({
   placeholder,
   required,
   type,
-  ...props
+  ...rest
 }: FieldProps<T>): ReactNode => {
   const errorMessageId = useId()
 
@@ -67,7 +67,7 @@ export const Field = <T extends FieldValues>({
           options={options}
           placeholder={formattedPlaceholder}
           required={required}
-          {...props}
+          {...rest}
         />
       )
       break
@@ -82,7 +82,7 @@ export const Field = <T extends FieldValues>({
           placeholder={formattedPlaceholder}
           required={required}
           type={type}
-          {...props}
+          {...rest}
         />
       )
       break

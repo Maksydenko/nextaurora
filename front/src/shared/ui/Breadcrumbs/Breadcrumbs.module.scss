@@ -12,7 +12,7 @@
     overflow-x: auto;
     font-size: rem(14);
     line-height: rem(24);
-    color: var(--mainColor);
+    color: var(--main-color);
     white-space: nowrap;
   }
 
@@ -50,7 +50,7 @@
   // .breadcrumbs__muted
   &__muted {
     flex: 0 0 auto;
-    color: var(--mutedColor);
+    color: var(--muted-color);
   }
 
   // .breadcrumbs__current
@@ -58,7 +58,7 @@
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--mainColor);
+    color: var(--main-color);
   }
 
   // .breadcrumbs__chevron
@@ -66,7 +66,7 @@
     flex: 0 0 auto;
     width: rem(16);
     aspect-ratio: 1;
-    color: var(--mainColor);
+    color: var(--main-color);
     opacity: 0.4;
   }
 }

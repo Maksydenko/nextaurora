@@ -6,6 +6,16 @@ interface FormatPriceOptions extends Intl.NumberFormatOptions {
   price: number
 }
 
+/**
+ * Formats a non-negative price in hryvnia using shared number formatting rules.
+ *
+ * @param price - Monetary amount; negative values yield an empty string.
+ * @param maximumFractionDigits - Passed through to `formatNumber` when set.
+ * @param minimumFractionDigits - Passed through to `formatNumber` when set.
+ * @returns String like `"1 234 ₴"`, or empty when formatting fails.
+ *
+ * @remarks Rounds up to the chosen fraction precision before formatting.
+ */
 export const formatPrice = ({
   maximumFractionDigits,
   minimumFractionDigits,

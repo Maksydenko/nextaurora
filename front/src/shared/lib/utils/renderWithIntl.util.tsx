@@ -1,7 +1,7 @@
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 import { type Messages, NextIntlClientProvider } from 'next-intl'
-import { type DeepPartial } from 'react-hook-form'
+import type { DeepPartial } from 'react-hook-form'
 
 import { render, type RenderOptions } from '@testing-library/react'
 

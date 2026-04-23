@@ -1,3 +1,6 @@
+/**
+ * One row of mock user data for the UI table demo.
+ */
 export interface UiTableRow {
   department: string
   email: string

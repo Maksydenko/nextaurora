@@ -3,7 +3,7 @@
 .loader {
   font-size: rem(30);
 
-  @extend %absoluteCenter;
+  @extend %absolute-center;
 
   &::after {
     display: block;

@@ -8,10 +8,10 @@ import {
 
 import { clsx } from 'clsx'
 import { HiChevronDown } from 'react-icons/hi2'
-import {
-  type SwiperClass,
-  type SwiperProps,
-  type SwiperRef
+import type {
+  SwiperClass,
+  SwiperProps,
+  SwiperRef
 } from 'swiper/react'
 
 import { Direction, SlideDirection } from '@/shared/model'
@@ -50,7 +50,11 @@ export const SliderSwiperNav = ({
     []
   )
 
-  // Sync prev/next button disabled state with Swiper position when not looping.
+  /**
+   * When looping is off, mirrors Swiper `isBeginning` / `isEnd` into prev/next disabled state.
+   *
+   * @remarks Subscribes to `slideChange` only in non-loop mode; with `loop`, arrows stay enabled.
+   */
   useEffect(() => {
     if (loop) {
       return

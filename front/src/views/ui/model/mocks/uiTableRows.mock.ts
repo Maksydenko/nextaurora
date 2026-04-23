@@ -1,5 +1,8 @@
-import { type UiTableRow } from '../interfaces/uiTableRow.interface'
+import type { UiTableRow } from '../interfaces/uiTableRow.interface'
 
+/**
+ * Mock user rows for the UI table showcase.
+ */
 export const uiTableRows: UiTableRow[] = [
   {
     department: 'Product',

@@ -1,5 +1,8 @@
-import { type UiSliderSlideContent } from '../interfaces/uiSliderSlideContent.interface'
+import type { UiSliderSlideContent } from '../interfaces/uiSliderSlideContent.interface'
 
+/**
+ * Placeholder slides for the Swiper UI showcase.
+ */
 export const uiSliderSlides: UiSliderSlideContent[] = Array.from(
   { length: 8 },
   (_, index) => {

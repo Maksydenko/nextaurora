@@ -1,10 +1,10 @@
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { clsx } from 'clsx'
 
 import { Card } from '@/entities/card'
 
-import { type Locale } from '@/shared/config'
+import type { Locale } from '@/shared/config'
 import { Pagination, ShellView } from '@/shared/ui'
 
 import {

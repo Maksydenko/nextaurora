@@ -22,7 +22,7 @@ export const Image = ({
   src,
   style,
   width,
-  ...props
+  ...rest
 }: ImageProps): JSX.Element => {
   const imgRef = useRef<HTMLImageElement>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -49,7 +49,7 @@ export const Image = ({
             onLoad={() => {
               setIsLoading(false)
             }}
-            {...props}
+            {...rest}
           />
         </>
       )}

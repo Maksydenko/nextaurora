@@ -1,4 +1,4 @@
-import { type ValueOf } from '@/shared/model/types/valueOf.type'
+import type { ValueOf } from '@/shared/model/types/valueOf.type'
 
 const DAYS_IN_WEEK = 7
 const HOURS_IN_DAY = 24
@@ -6,6 +6,9 @@ const MINUTES_IN_HOUR = 60
 const SECONDS_IN_MINUTE = 60
 const MILLISECONDS_IN_SECOND = 1000
 
+/**
+ * Time-unit constants for durations, intervals, and scheduling.
+ */
 export const Time = {
   DaysInWeek: DAYS_IN_WEEK,
   HoursInDay: HOURS_IN_DAY,

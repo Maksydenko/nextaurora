@@ -2,18 +2,18 @@
 
 // Scrollbar styles
 
-@include themeVar(scrollColor, hsl(220 9% 46% / 0.45), hsl(215 14% 64% / 0.35));
-@include themeVar(scrollBg, hsl(220 14% 96%), hsl(215 28% 17%));
+@include theme-var('scroll-color', hsl(220 9% 46% / 0.45), hsl(215 14% 64% / 0.35));
+@include theme-var('scroll-bg', hsl(220 14% 96%), hsl(215 28% 17%));
 
 ::-webkit-scrollbar {
   width: rem(8);
   height: rem(4);
-  background: var(--scrollBg);
+  background: var(--scroll-bg);
 
   // ::-webkit-scrollbar-thumbs
 
   &-thumb {
-    background: var(--scrollColor);
+    background: var(--scroll-color);
     border-radius: rem(4);
   }
 }

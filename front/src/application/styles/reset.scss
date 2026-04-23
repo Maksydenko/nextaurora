@@ -13,7 +13,7 @@
 
 html,
 body {
-  min-width: $minWidth + px;
+  min-width: $min-width + px;
   height: 100%;
 }
 
@@ -22,11 +22,11 @@ html {
 }
 
 body {
-  font-family: $primaryFontFamily;
-  font-size: $fontSize;
+  font-family: $primary-font-family;
+  font-size: $font-size;
   line-height: 1.625;
-  color: var(--mainColor);
-  background: var(--mainBgColor);
+  color: var(--main-color);
+  background: var(--main-bg-color);
 }
 
 input,
@@ -44,7 +44,7 @@ textarea {
 }
 
 input {
-  box-shadow: 0 0 0 rem(999) var(--mainBgColor) inset;
+  box-shadow: 0 0 0 rem(999) var(--main-bg-color) inset;
 }
 
 textarea {

@@ -9,13 +9,22 @@ import { Time } from '@/shared/model'
 
 const SECONDS_TO_REDIRECT = 10
 
+/**
+ * Decrements a second-based countdown, then navigates to the home route when it reaches zero.
+ *
+ * @returns The remaining seconds before redirect.
+ *
+ * @remarks Must run in a client component; uses Next.js `useRouter` for navigation.
+ */
 export const useRedirectToHomepage = (): {
   time: number
 } => {
   const [time, setTime] = useState(SECONDS_TO_REDIRECT)
   const { push } = useRouter()
 
-  // Drive countdown and redirect home once the timer hits zero.
+  /**
+   * Schedules the next tick (or redirect) and clears the active timeout on cleanup or dependency change.
+   */
   useEffect(() => {
     const timer = setTimeout(() => {
       if (time > 0) {

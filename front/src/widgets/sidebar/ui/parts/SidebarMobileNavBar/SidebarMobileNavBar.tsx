@@ -1,13 +1,13 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { clsx } from 'clsx'
 import { useAtomValue } from 'jotai'
 
 import { Breakpoint } from '@/shared/config'
 import { useMediaQuery } from '@/shared/lib'
-import { docBreadcrumbsAtom } from '@/shared/model'
+import { breadcrumbsAtom } from '@/shared/model'
 import { Breadcrumbs } from '@/shared/ui'
 
 import { SidebarDrawer } from '../SidebarDrawer/SidebarDrawer'
@@ -23,14 +23,14 @@ export const SidebarMobileNavBar = ({
   isOpen,
   onOpenChange
 }: SidebarMobileNavBarProps): JSX.Element => {
-  const breadcrumbs = useAtomValue(docBreadcrumbsAtom)
+  const breadcrumbs = useAtomValue(breadcrumbsAtom)
   const isMobile = useMediaQuery(Breakpoint.LG)
 
   return (
     <>
       <div className={s.sidebarMobileNavBar}>
         <button
-          aria-controls="sidebarNavigation"
+          aria-controls="sidebar-navigation"
           aria-expanded={isOpen}
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           className={s.sidebarMobileNavBar__button}
@@ -52,7 +52,7 @@ export const SidebarMobileNavBar = ({
           </span>
         </button>
 
-        {!!breadcrumbs?.length && (
+        {breadcrumbs && breadcrumbs.length > 0 && (
           <Breadcrumbs
             breadcrumbs={breadcrumbs}
             className={s.sidebarMobileNavBar__breadcrumbs}

@@ -1,16 +1,13 @@
 'use client'
 
-import { type HTMLInputTypeAttribute, type JSX } from 'react'
+import type { HTMLInputTypeAttribute, JSX } from 'react'
 
-import { clsx } from 'clsx'
-import {
-  type FieldValues,
-  type Path,
-  type RegisterOptions,
-  type UseFormReturn
+import type {
+  FieldValues,
+  Path,
+  RegisterOptions,
+  UseFormReturn
 } from 'react-hook-form'
-
-import s from './Input.module.scss'
 
 interface InputProps<T extends FieldValues> {
   'aria-describedby'?: string
@@ -38,7 +35,7 @@ export const Input = <T extends FieldValues>({
   placeholder,
   required,
   type,
-  ...props
+  ...rest
 }: InputProps<T>): JSX.Element => {
   const {
     formState: { errors },
@@ -58,7 +55,7 @@ export const Input = <T extends FieldValues>({
       aria-invalid={!!error}
       aria-required={Boolean(required ?? options?.required)}
       autoComplete={name}
-      className={clsx(s.input, className)}
+      className={className}
       disabled={disabled}
       id={name}
       maxLength={maxLength}
@@ -73,7 +70,7 @@ export const Input = <T extends FieldValues>({
         onBlur?.()
       }}
       onFocus={onFocus}
-      {...props}
+      {...rest}
       {...restRegister}
     />
   )

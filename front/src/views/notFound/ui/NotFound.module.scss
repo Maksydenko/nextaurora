@@ -53,13 +53,13 @@
     font-size: rem(30);
     font-weight: 800;
     line-height: 1.2;
-    color: var(--mainColor);
+    color: var(--main-color);
     letter-spacing: -0.025em;
     border-right-color: $gray90010;
     border-right-style: solid;
     border-right-width: rem(1);
 
-    @include onDark {
+     @include on-dark {
       border-right-color: $gray30010;
     }
 
@@ -92,14 +92,14 @@
     font-size: rem(16);
     font-weight: 400;
     line-height: 1.5;
-    color: var(--mutedColor);
+    color: var(--muted-color);
   }
 
   // .notFound__description
   &__description {
     font-size: rem(14);
     line-height: 1.5;
-    color: var(--mutedColor);
+    color: var(--muted-color);
     text-align: left;
 
     @media (max-width: $sm) {

@@ -4,7 +4,7 @@ import { type JSX, type ReactNode, useMemo } from 'react'
 
 import { Card } from '@/entities/card'
 
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 import { ShellView,SliderSwiper } from '@/shared/ui'
 
 import { uiSliderBreadcrumbs, uiSliderSlides } from '../../../model'
@@ -40,8 +40,14 @@ export const SliderView = (): JSX.Element => {
         <div className={s.sliderView__slider}>
           <SliderSwiper
             breakpoints={{
-              640: { slidesPerView: 2, spaceBetween: 20 },
-              1024: { slidesPerView: 3, spaceBetween: 20 }
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 20
+              }
             }}
             slides={slides}
             slidesPerView={1}

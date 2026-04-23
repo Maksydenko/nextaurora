@@ -1,5 +1,6 @@
 import perfectionist from 'eslint-plugin-perfectionist'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
+import tsdoc from 'eslint-plugin-tsdoc'
 import unusedImports from 'eslint-plugin-unused-imports'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -41,6 +42,7 @@ const eslintConfig = [
         }
       ],
       '@typescript-eslint/explicit-module-boundary-types': 'warn',
+      '@typescript-eslint/no-import-type-side-effects': 'error',
       '@typescript-eslint/no-inferrable-types': [
         'warn',
         {
@@ -106,7 +108,6 @@ const eslintConfig = [
       'object-shorthand': ['warn', 'always'],
       'padding-line-between-statements': [
         'warn',
-        // Empty line after directives
         {
           blankLine: 'always',
           next: '*',
@@ -117,19 +118,16 @@ const eslintConfig = [
           next: 'directive',
           prev: 'directive'
         },
-        // Empty line before return
         {
           blankLine: 'always',
           next: 'return',
           prev: '*'
         },
-        // Empty line before control structures
         {
           blankLine: 'always',
           next: ['do', 'for', 'if', 'switch', 'try', 'while', 'with'],
           prev: '*'
         },
-        // Empty line after control structures
         {
           blankLine: 'always',
           next: '*',
@@ -176,8 +174,10 @@ const eslintConfig = [
         'warn',
         {
           groups: [
-            ['^react$', '^react-dom$'],
-            ['^next$', '^next/'],
+            // `import type` appends \\u0000 for grouping;
+            // include it so React/Next stay in these buckets and above `^[a-z]` packages.
+            ['^react(\\u0000)?$', '^react-dom(\\u0000)?$'],
+            ['^next(\\u0000)?$', '^next/'],
             ['^[a-z]'],
             ['^@'],
             ['^@/application/'],
@@ -187,20 +187,22 @@ const eslintConfig = [
             ['^@/entities/'],
             ['^@/shared/'],
             ['^@/'],
-            ['\\/hooks$', '^\\.\\.*/use[A-Z].*$', '^\\.*/use[A-Z].*$'],
-            ['\\/services$', '\\.service$'],
-            ['\\/providers$', '\\.provider$'],
-            ['\\/contexts$', '\\.context$'],
-            ['\\/utils$', '\\.util$'],
-            ['\\/helpers$', '\\.helper$'],
-            ['\\/schemas$', '\\.schema$'],
-            ['\\/data$', '\\.data$'],
-            ['\\/mocks$', '\\.mock$'],
-            ['\\/constant$', '\\.const$'],
-            ['\\/configs$', '\\.config$'],
             ['\\/enums$', '\\.enum$'],
             ['\\/types$', '\\.type$'],
             ['\\/interfaces$', '\\.interface$'],
+            ['\\/constant$', '\\/constants$', '\\.const$'],
+            ['\\/configs$', '\\.config$'],
+            ['\\/schemas$', '\\.schema$'],
+            ['\\/mocks$', '\\.mock$'],
+            ['\\/data$', '\\.data$'],
+            ['\\/utils$', '\\.util$'],
+            ['\\/helpers$', '\\.helper$'],
+            ['\\/services$', '\\.service$'],
+            ['\\/stores$', '\\.store$'],
+            ['\\/atoms$', '\\.atom$'],
+            ['\\/contexts$', '\\.context$'],
+            ['\\/providers$', '\\.provider$'],
+            ['\\/hooks$', '^\\.\\.*/use[A-Z].*$', '^\\.*/use[A-Z].*$'],
             ['^\\.\\.(?!/?$)', '^\\.(?!/?$)'],
             ['^'],
             ['^.+\\.module\\.s?css$'],
@@ -218,6 +220,15 @@ const eslintConfig = [
           varsIgnorePattern: '^_'
         }
       ]
+    }
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      tsdoc
+    },
+    rules: {
+      'tsdoc/syntax': 'warn'
     }
   }
 ]

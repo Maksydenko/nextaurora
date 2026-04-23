@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { clsx } from 'clsx'
 import { useTheme } from 'next-themes'
@@ -9,9 +9,9 @@ import * as ToggleGroup from '@radix-ui/react-toggle-group'
 
 import { useMounted } from '@/shared/lib'
 
-import { themes } from './themes.data'
-
 import { Theme } from './theme.enum'
+
+import { themes } from './themes.data'
 
 import s from './ThemeSwitcher.module.scss'
 

@@ -1,9 +1,12 @@
 import { HiComputerDesktop, HiMoon, HiSun } from 'react-icons/hi2'
 
-import { type OptionWithIcon } from '@/shared/model'
+import type { OptionWithIcon } from '@/shared/model'
 
 import { Theme } from './theme.enum'
 
+/**
+ * Theme switcher entries (light / system / dark) with icons.
+ */
 export const themes: OptionWithIcon<Theme>[] = [
   {
     icon: HiSun,

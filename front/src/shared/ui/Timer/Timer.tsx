@@ -28,6 +28,11 @@ export type TimerProps = UseTimerOptions & {
   labels?: Partial<TimerLabels>
 }
 
+/**
+ * Countdown display built on `react-timer-hook`, with optional label overrides.
+ *
+ * @remarks Forwards timer options to `useTimer`. Default labels are short unit suffixes (`d`, `h`, `m`, `s`).
+ */
 export const Timer = ({
   className,
   labels: labelsProp,
@@ -43,7 +48,11 @@ export const Timer = ({
     ...timerProps
   })
 
-  // Avoid hydration mismatch by rendering live timer values only after mount.
+  /**
+   * Defers rendering live countdown values until after mount.
+   *
+   * @remarks `react-timer-hook` output differs between SSR and CSR; gating avoids a hydration mismatch.
+   */
   useEffect(() => {
     setIsClient(true)
   }, [])

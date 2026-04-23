@@ -1,5 +1,8 @@
-import { type ValueOf } from '@/shared/model/types/valueOf.type'
+import type { ValueOf } from '@/shared/model/types/valueOf.type'
 
+/**
+ * TanStack Query `fetchStatus` values surfaced in UI or tests.
+ */
 export const FetchStatus = {
   Fetching: 'fetching',
   Idle: 'idle',
@@ -7,6 +10,9 @@ export const FetchStatus = {
 } as const
 export type FetchStatus = ValueOf<typeof FetchStatus>
 
+/**
+ * TanStack Query `status` values for settled queries.
+ */
 export const QueryStatus = {
   Error: 'error',
   Pending: 'pending',

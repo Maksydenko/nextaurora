@@ -1,11 +1,14 @@
+/**
+ * Jest mock for `next/font/google` returning stable class names and CSS variables.
+ */
 const Inter = () => ({
   className: 'mockedInter',
-  variable: '--mockedInter'
+  variable: '--mocked-inter'
 })
 
 const JetBrains_Mono = () => ({
   className: 'mockedJetbrainsMono',
-  variable: '--mockedJetBrainsMono'
+  variable: '--mocked-jetbrains-mono'
 })
 
 module.exports = {

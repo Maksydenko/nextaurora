@@ -1,4 +1,4 @@
-import { type JSX, type ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
 
 import { notFound } from 'next/navigation'
 
@@ -12,6 +12,9 @@ interface NextIntlProviderProps {
   locale: string
 }
 
+/**
+ * Validates `locale`, loads messages, and wraps children with `next-intl` client provider.
+ */
 export const NextIntlProvider = async ({
   children,
   locale

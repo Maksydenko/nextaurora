@@ -1,4 +1,4 @@
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 
@@ -6,7 +6,7 @@ import Home from '@/views/home'
 
 import { Translation } from '@/shared/config'
 import { generateMetaTitle } from '@/shared/lib'
-import { type PageProps, type Params } from '@/shared/model'
+import type { PageProps, Params } from '@/shared/model'
 
 export const generateMetadata = async ({
   params

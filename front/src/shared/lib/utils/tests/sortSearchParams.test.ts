@@ -1,3 +1,6 @@
+/**
+ * Unit tests for {@link sortSearchParams} (stable query string ordering).
+ */
 import { sortSearchParams } from '../sortSearchParams.util'
 
 describe('sortSearchParams', () => {

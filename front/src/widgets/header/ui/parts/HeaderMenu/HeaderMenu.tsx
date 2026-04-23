@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { clsx } from 'clsx'
 import { Drawer } from 'vaul'
@@ -62,7 +62,7 @@ export const HeaderMenu = ({
             <Drawer.Content
               aria-describedby={undefined}
               className={s.headerMenu__drawerContent}
-              id="headerSiteMenu"
+              id="header-site-menu"
             >
               <Drawer.Title className={s.headerMenu__drawerTitle}>
                 Menu

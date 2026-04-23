@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { clsx } from 'clsx'
 import {
@@ -18,17 +18,17 @@ import { LineChartTick, LineChartTooltip } from './parts'
 
 import s from './LineChart.module.scss'
 
-const CHART_MAIN_COLOR = 'var(--accentColor)'
-const CHART_SECONDARY_COLOR = 'var(--mutedColor)'
-const CHART_DOT_RING_COLOR = 'var(--mainBgColor)'
+const CHART_MAIN_COLOR = 'var(--accent-color)'
+const CHART_SECONDARY_COLOR = 'var(--muted-color)'
+const CHART_DOT_RING_COLOR = 'var(--main-bg-color)'
 
 const CHART_AREA_GRADIENTS = [
   {
-    id: 'lineChartMain',
+    id: 'line-chart-main',
     stopColor: CHART_MAIN_COLOR
   },
   {
-    id: 'lineChartAdditional',
+    id: 'line-chart-additional',
     stopColor: CHART_SECONDARY_COLOR
   }
 ] as const
@@ -61,7 +61,7 @@ export const LineChart = ({
   className,
   data,
   height = 200,
-  ...props
+  ...rest
 }: LineChartProps): JSX.Element => {
   const generateExtendedData = (source: LineChartDatum[]) => {
     const [firstPoint] = source
@@ -92,7 +92,7 @@ export const LineChart = ({
     <ResponsiveContainer
       className={clsx(className, s.lineChart)}
       height={height}
-      {...props}
+      {...rest}
     >
       <AreaChart
         data={extendedData}
@@ -157,7 +157,7 @@ export const LineChart = ({
             )
           }}
           dataKey="main"
-          fill="url(#lineChartMain)"
+          fill="url(#line-chart-main)"
           stroke={CHART_MAIN_COLOR}
           strokeWidth={5}
           type="monotone"
@@ -185,7 +185,7 @@ export const LineChart = ({
               )
             }}
             dataKey="additional"
-            fill="url(#lineChartAdditional)"
+            fill="url(#line-chart-additional)"
             stroke={CHART_SECONDARY_COLOR}
             strokeWidth={5}
             type="monotone"

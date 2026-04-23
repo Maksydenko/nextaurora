@@ -1,13 +1,13 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
-import { type TooltipProps } from 'recharts'
+import type { TooltipProps } from 'recharts'
 
 import { formatDate } from '@/shared/lib'
 import { DateFormat } from '@/shared/model'
 
-import { type LineChartDatum } from '../LineChart'
+import type { LineChartDatum } from '../LineChart'
 
 import s from '../LineChart.module.scss'
 

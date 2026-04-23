@@ -1,0 +1,113 @@
+---
+description: Frontend TS/TSX conventions, naming versus file stem, module layout, deferred loading (dynamic and import()), no TS enum, zero lint warnings, DRY and KISS and YAGNI
+alwaysApply: true
+---
+
+# Frontend code conventions
+
+Conventions for **module structure**, **naming**, **deferred loading** (bundle and runtime), **lint hygiene**, and **quality bars**, broader than "code style" alone. Applies to the **frontend TypeScript/TSX source tree** (same root as **`architecture.mdc`**). Targets **new** and refactored modules; legacy may diverge until touched.
+
+**FSD slice layout** and **kind**, **segment**, and **role-suffix** pairing are described in **`architecture.mdc`**. **Imports, plugins, and every other lint rule** for that tree are defined only in **`front/eslint.config.js`**; see **ESLint** below.
+
+## ESLint
+
+- Treat **`front/eslint.config.js`** as the **full** source of truth for the front tree: import **`groups`**, enabled plugins (**TSDoc** among them), and any other configured rules. Follow the **entire** config, not a hand-picked subset from these Cursor rules.
+- If guidance here and ESLint disagree, **ESLint wins**; open or run the config instead of guessing from summaries.
+
+## Closed sets of literals (no TypeScript `enum`)
+
+- Do **not** use TypeScript **`enum`**. Prefer a **`const` object** with **`as const`** and an **`export type`** alias that uses **`ValueOf`** with **`typeof`** on that same **`const`** binding, using the project **`ValueOf`** helper (see existing **`*.enum.ts`** files and **`documentation.mdc`**).
+- The **`enums/`** segment and **`*.enum.ts`** suffix mean a **finite variant map** implemented that way, not the **`enum`** language feature. In **`*.enum.ts`**, keep **`export type Name = ValueOf<typeof Name>`** directly under **`} as const`** with **no** empty line in between, and add TSDoc **only** on the **`const`** map, not on the **`type`** alias.
+
+## Stem from the filename
+
+- Take the file basename **without** **`*.ts`** and **`*.tsx`**.
+- Remove the **trailing role segment** (dot-suffix before the extension). The full configured set lives in **`front/eslint.config.js`** under **`groups`** (e.g. **`.const`**; see the config for the rest).
+- The result is the **stem**. The file's **primary** exported binding should use that stem (see casing below), not an unrelated name.
+
+**Mocks (`.mock.ts`)**: treat **`.mock`** like any other role suffix; strip it so the **primary export identifier** matches the stem. If the public name and stem would diverge, **rename the file** so they stay aligned.
+
+## Casing
+
+- **PascalCase**: exported **React components** only (including primary exports from **`.provider.tsx`**, **`.document.tsx`**, **`.shell.tsx`** when they are components). If the stem is already **PascalCase** (typical **role-suffix-free** **`*.tsx`**), the primary component name **equals the stem**. If the stem is **lowerCamelCase**, capitalize the first character for the component. If the public component name must include a fixed role word (**`Provider`**, **`Shell`**, **`Document`**, and similar), encode that word in the **basename before the role suffix** so stem and export stay consistent.
+- **lowerCamelCase**: primary **functions**, **object literals**, **atoms**, **schemas**, **mock data**, **`const` variant maps** (including **`*.enum.ts`**, not TS **`enum`**); identifier **equals the stem**. If the stem would be too generic after stripping the role suffix, **rename the file** so the stem is explicit.
+- **`SCREAMING_SNAKE_CASE`**: only for **non-exported** module-level constants that sit **next to** the primary component/function (same file scope, "peer" literals). Do not export `SCREAMING_SNAKE` bindings from `*.ts` and `*.tsx` as the public API.
+
+## Interfaces and types (naming)
+
+- Do **not** use **`interface`** or **`type`** name prefixes (e.g. no **`IUser`**) on exported or internal shapes; use **PascalCase** descriptive names only.
+- Prefer **`interface`** over **`type`** for object shapes (including component **`Props`**). Use **`type`** only when an **`interface`** cannot express it (e.g. a **union** of literals).
+- For the **primary React component** in a module, its props shape must be named **`${ComponentName}Props`** (component **PascalCase** name plus suffix **`Props`**), declared as **`interface`** when possible, placed **immediately above** that component.
+
+## Function and boolean naming
+
+- **Functions**: **lowerCamelCase**, verb plus subject. **Booleans**: same casing with **`is`**, **`has`**, **`can`**, and similar (e.g. **`isOpen`**).
+
+## One component per file; no hooks in component modules
+
+- A **primary** role-suffix-free **`*.tsx`** (or a single primary component in **`.provider`**, **`.document`**, or **`.shell`**) exports **at most one** React component; extra UI goes to **`parts/`** or another module (see **`architecture.mdc`**, **`ui` and `parts`**).
+- Do **not** define or export **custom hooks** in that same file; use **`hooks/`** or a colocated **`use*.ts`** file.
+
+## Destructuring, object layout, and small callbacks
+
+- **When to destructure**: Destructure from an object or array only when the same property or element is used more than once; for a single read, keep direct member or index access.
+- **Objects**: Use object destructuring (`{}`) when the rule above applies.
+- **Refs**: Do not destructure `current`; assign a named local binding from the ref value. For DOM-node refs, use the `Element` suffix for that local binding.
+- **Arrays**: Prefer array destructuring (`[]`) when it improves clarity and does not create unused bindings; otherwise use indexing or a small intermediate.
+- **`void` calls**: do not **`return`** a **`void`** call from a **`void`** handler; call it as its own statement.
+- **Object literals in code**: Object literals with multiple properties (or long values) must be formatted multiline, one property per line.
+- **Component props**: Destructure named props in the function signature when possible; for remaining props always use `...rest`.
+- **Short callback parameters**: In short inline callbacks, prefer conventional concise parameter names over verbose names when the meaning is obvious from context.
+
+## Conditional JSX
+
+- Prefer **`condition && <Node />`** over **`condition ? <Node /> : null`** when the falsy branch is empty. Ensure the left-hand side is a **boolean** or an explicit comparison so numeric zero or an empty string do not render by accident.
+- For **`.length`** checks, prefer **`.length > 0`** over **`!!...length`**.
+
+## Deferred UI (`next/dynamic`)
+
+- When the user **only sees** a component after an action or the block is **heavy**, load it with **`next/dynamic`** and **`import()`**, mapping a **named** export to **default** when needed. Use **`{ ssr: false }`** only when the module cannot run on the server (client-only APIs or libs). Add a **`loading`** fallback or **`Suspense`** where it helps perceived performance.
+- Do **not** wrap trivial presentational pieces by default; reserve **`dynamic`** for real bundle or SSR wins (**YAGNI**).
+
+## Deferred dependencies (`import()`)
+
+- Prefer **`await import('...')`** only inside user-driven or rare paths, not for every page load.
+- The **same pattern** is appropriate for **bundle optimization** when a dependency is **large** or **rarely used** and **not** on the critical path for first paint; split it so most users never pay the cost up front.
+- Typical places: async mutation/request handlers, submit handlers, click-driven flows, post-condition branches, and heavy optional integrations.
+- Keep **static imports** for hot-path dependencies needed on first render or shared by most code paths.
+- Load from a **stable module boundary** (feature or public API barrel) when possible, not deep private internals.
+- Do **not** sprinkle `import()` "for optimization" without a **concrete** reason (measured or heavy module, optional feature, or action-gated flow); otherwise prefer static imports (**YAGNI**).
+
+## Order inside a module
+
+1. **`import`s** (order as enforced by **`front/eslint.config.js`**).
+2. **Non-exported** helpers and **non-exported** module-level constants ( **`SCREAMING_SNAKE`** literals here when they are fixed magic values lifted from logic).
+3. The **primary** **`interface`** (or **`type`** only if required) for the primary export (**`${ComponentName}Props`** for components) **immediately above** that export.
+4. **TSDoc** on the primary export **only where mandatory** (per **`documentation.mdc`**, not on role-suffix-free UI **`*.tsx`** component exports by default).
+5. The **primary export**, then any rare secondary exports (prefer splitting instead).
+
+## Next.js `app/**/layout.tsx` module order
+
+For **`app/**/layout.tsx`** only, after ESLint-sorted **`import`s**, use this **top-to-bottom** order (omit what the file does not define):
+
+1. **Segment static config** (when present): **`dynamic`**, **`dynamicParams`**, **`revalidate`**, **`fetchCache`**, **`runtime`**, **`preferredRegion`**, **`maxDuration`**, and similar **`export const`** route options from Next; when several appear in one file, keep this relative order.
+2. **Route generators** (when present): **`generateStaticParams`**, **`generateMetadata`**, and other **`generate*`** exports the segment needs.
+3. **Metadata API** (when present): **`metadata`**, **`viewport`**, and other related **`export const`** values typed from **`next`**.
+4. **Colocated `interface`** or **`type`** used only by the exports above; place each **immediately above** the export it belongs to.
+5. **Layout props** shape (**`interface`** when possible) for the default layout component.
+6. **Layout component** (implementation), then **`export default`**.
+
+## Lint and console output
+
+- **No warnings** on committed code: ESLint (including **`--max-warnings 0`** when used in CI), TypeScript, and other configured checks must be clean. Do not ship suppressed issues without a tracked reason.
+- **Exception**: short-lived **`console.log`** while debugging locally is allowed; remove it before merge.
+
+## UI copy and message strings
+
+- In user-visible strings, type what you mean (e.g. a real **`&`** for "and"), not HTML entity names such as **`&amp;`**.
+
+## Magic numbers, DRY, KISS, YAGNI
+
+- **No magic numbers** (or unexplained string literals) in logic: extract to **`*.const.ts`**, **`*.enum.ts`**, **`*.config.ts`**, or a **named** local or shared constant.
+- Prefer **small**, **reused** helpers over duplication (**DRY**); prefer the **simplest** readable shape over cleverness (**KISS**).
+- **YAGNI**: do not add APIs, indirection, or "future-proof" layers until a **concrete** need exists in the codebase.

@@ -1,8 +1,8 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
-import { type XAxisProps } from 'recharts'
+import type { XAxisProps } from 'recharts'
 
 import { Breakpoint } from '@/shared/config'
 import { formatDate, useMediaQuery } from '@/shared/lib'

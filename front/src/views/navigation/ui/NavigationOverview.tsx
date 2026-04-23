@@ -1,13 +1,17 @@
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { Pathname } from '@/shared/config'
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 import { IndexOverview } from '@/shared/ui'
 
 import { navigationOverviewBreadcrumbs } from '../model'
 
 const NAVIGATION_OVERVIEW_LINKS: Option[] = [
-  { id: 'pagination', label: 'Pagination', value: Pathname.Pagination }
+  {
+    id: 'pagination',
+    label: 'Pagination',
+    value: Pathname.Pagination
+  }
 ]
 
 export const NavigationOverview = (): JSX.Element => (

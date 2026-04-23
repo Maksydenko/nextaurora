@@ -1,3 +1,6 @@
+/**
+ * Unit tests for {@link formatDate} (Luxon formatting and defaults).
+ */
 import { formatDate } from '../formatDate.util'
 
 describe('formatDate', () => {

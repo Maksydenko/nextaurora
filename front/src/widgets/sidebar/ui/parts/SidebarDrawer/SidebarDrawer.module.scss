@@ -4,7 +4,7 @@
   // .sidebarDrawer__overlay
   &__overlay {
     position: fixed;
-    top: calc($headerHeight + $sidebarMobileNavHeight);
+    top: calc($header-height + $sidebar-mobile-nav-height);
     right: 0;
     bottom: 0;
     left: 0;
@@ -15,25 +15,25 @@
   // .sidebarDrawer__content
   &__content {
     position: fixed;
-    top: calc($headerHeight + $sidebarMobileNavHeight);
+    top: calc($header-height + $sidebar-mobile-nav-height);
     bottom: 0;
     left: 0;
     z-index: 901;
     display: flex;
     flex-direction: column;
-    width: $sidebarWidth;
-    background: var(--sidebarBg);
-    border-right: rem(1) solid var(--borderColor);
+    width: $sidebar-width;
+    background: var(--sidebar-bg);
+    border-right: rem(1) solid var(--border-color);
     box-shadow: rem(4) 0 rem(24) $black14;
 
-    @include onDark {
+     @include on-dark {
       box-shadow: rem(4) 0 rem(32) $black45;
     }
   }
 
   // .sidebarDrawer__title
   &__title {
-    @extend %srOnly;
+    @extend %sr-only;
   }
 
   // .sidebarDrawer__nav

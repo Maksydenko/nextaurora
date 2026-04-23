@@ -1,0 +1,57 @@
+---
+description: TSDoc requirements for effects, custom hooks, and types in dedicated files (Next.js front)
+alwaysApply: true
+---
+
+# Documentation (TSDoc)
+
+Applies to the **frontend TypeScript/TSX source tree**. Comments for agents and humans must be **in English**. The project uses **`eslint-plugin-tsdoc`** (`tsdoc/syntax` on TS/TSX); **invalid** TSDoc breaks lint.
+
+## TSDoc block shape
+
+- Use a **multi-line** block: **`/**`** on its own first line; each body line uses the usual TSDoc margin (**asterisk, then one space, then text**); **`*/`** on its own last line. Do **not** put the whole comment on one line.
+
+## When TSDoc is mandatory
+
+- **Hook modules**: any **`*.ts`** and **`*.tsx`** whose basename is **`use` + PascalCase** (often one hook per file under **`hooks/`** or colocated). Put a TSDoc block **on each exported hook**, immediately above the **`export const`** or **`export function`** line that declares the hook (name must start with **`use`**). See [Custom hooks](#custom-hooks).
+- **Role-suffixed modules**: any **`*.ts`** and **`*.tsx`** whose basename includes a **role suffix** per **`front/eslint.config.js`** **`groups`**. Put TSDoc **on every exported** binding, **except** in **`*.enum.ts`** when the **`const`** map with **`as const`** is immediately followed by the matching **`export type Name = ValueOf<typeof Name>`** line. Then document **only** the **`const`**, put **no** TSDoc on the **`type`**, and leave **no** blank line between **`} as const`** and **`export type`**.
+- **`*.test.ts`**: one **file-level** TSDoc block at the top of the file is enough (what the suite covers); do not require TSDoc on every test case unless you want it for clarity.
+
+**`*.interface.ts`** and **`*.type.ts`** are role-suffixed; they are covered here and detailed in [Types in dedicated files](#types-in-dedicated-files).
+
+## React effect hooks
+
+Immediately **above every call** to a React effect API, add a **multi-line** TSDoc block (not a single-line `//`):
+
+- `useEffect`
+- `useLayoutEffect`
+- `useInsertionEffect`
+
+The block should state **why** the effect runs; add **`@remarks`** when cleanup or the dependency list is easy to misunderstand.
+
+## Custom hooks
+
+For every **`use*` hook** exported from **its own module** (see [When TSDoc is mandatory](#when-tsdoc-is-mandatory)):
+
+- Place the TSDoc block **immediately above** the exported hook (`export const useHook` or `export function useHook`).
+- Use **any TSDoc tags that fit** (e.g. **`@remarks`** when SSR and client differ), not only **`@param`** and **`@returns`**.
+- If the hook only wraps effects, still document the **hook's public contract**; effect-level blocks above `useEffect`, `useLayoutEffect`, and `useInsertionEffect` remain **mandatory** per the previous section.
+
+## Types in dedicated files
+
+For files named **`*.interface.ts`** or **`*.type.ts`** (and only those, not **`*.enum.ts`** variant maps, atoms, or colocated `interface` inside a component file):
+
+- **`*.interface.ts`** versus **`*.type.ts`**: use **`*.interface.ts`** for object **`interface`**s; use **`*.type.ts`** for unions, inferred aliases, and other shapes an **`interface`** cannot express.
+- Add a TSDoc block **above each exported `interface` or `type`**.
+- Use **any suitable TSDoc tags** (e.g. **`@remarks`** for invariants callers must know).
+- Keep the **summary line** concise; add tags only when they add information beyond the type's fields.
+
+## What this rule does not require
+
+- In **role-suffix-free** **`*.tsx`** component modules (typical **`ui`** folders), do **not** add documentation comments by default on the **primary component export** or on **peer top-level declarations** in that module (colocated **`interface`** or **`type`** for **`${ComponentName}Props`**, constants, helpers). Add docs only when a non-obvious constraint must be explained.
+
+## Consistency
+
+- Prefer **one summary line**, then add whichever standard TSDoc tags apply. Use the same **summary-first, then tags** shape across hooks and role-suffixed modules (this is about comment layout, not **`import`** order).
+- **Wording in these rule files** (the **`.mdc`** text): prefer **words** that state the relation (**from**, **to**, **and**, **or**, **then**, **matches**) instead of relying on **symbols alone** as shorthand (arrows, slash-only lists, and similar) so the rules stay easy to read and to search.
+- After edits, run the **package lint script** (must pass with **zero warnings** if that is CI policy). The only intentional exception is short-lived **`console.log`** during local debugging; remove it before merge.

@@ -12,8 +12,7 @@ import { Direction, type Option } from '@/shared/model'
 
 import { useBullets } from './useBullets'
 
-import { type Breakpoints } from './breakpoints.interface'
-
+import type { Breakpoints } from './breakpoints.interface'
 import { SliderSwiperNav } from './parts'
 
 import s from './SliderSwiper.module.scss'
@@ -57,7 +56,7 @@ export const SliderSwiper = ({
   slides,
   slidesPerView,
   virtual,
-  ...props
+  ...rest
 }: SliderSwiperProps): JSX.Element => {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   const swiperRef = useRef<any>(null)
@@ -75,7 +74,11 @@ export const SliderSwiper = ({
       (typeof pagination === 'object' && pagination.type === 'bullets')) &&
     hasBulletsLayout
 
-  // Keep slide content out of the tab order so focus stays on nav controls.
+  /**
+   * Sets `tabIndex={-1}` on slide descendants so keyboard focus stays on navigation controls.
+   *
+   * @remarks Runs once after Swiper mounts; depends on `swiperRef` being populated by the instance.
+   */
   useEffect(() => {
     const swiperElement = swiperRef?.current
 
@@ -88,7 +91,11 @@ export const SliderSwiper = ({
     })
   }, [])
 
-  // Reflect the autoplay prop on the Swiper instance when it is available.
+  /**
+   * Starts or stops Swiper autoplay when the `autoplay` prop changes.
+   *
+   * @remarks No-ops if the autoplay controller is not present on the instance.
+   */
   useEffect(() => {
     const swiperAutoplay = swiperRef?.current.swiper.autoplay
 
@@ -134,7 +141,7 @@ export const SliderSwiper = ({
           keyboard={keyboard}
           modules={[A11y, Keyboard, Navigation, Pagination, Virtual]}
           pagination={pagination}
-          {...props}
+          {...rest}
         >
           {slideItems}
         </Swiper>

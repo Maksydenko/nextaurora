@@ -5,10 +5,10 @@
   height: rem(34);
   padding: rem(3);
   background: $gray100;
-  border: rem(1) solid var(--borderColor);
+  border: rem(1) solid var(--border-color);
   border-radius: rem(8);
 
-  @include onDark {
+   @include on-dark {
     background: $gray900;
   }
 
@@ -21,7 +21,7 @@
     aspect-ratio: 1;
     font-size: rem(15);
     line-height: 1;
-    color: var(--mutedColor);
+    color: var(--muted-color);
     user-select: none;
     border-radius: rem(6);
     transition: 0.2s ease;
@@ -34,21 +34,21 @@
 
     &:hover {
       &:not(:disabled) {
-        color: var(--mainColor);
+        color: var(--main-color);
         background: $gray100;
 
-        @include onDark {
+         @include on-dark {
           background: $white6;
         }
       }
     }
 
     &[data-state='on'] {
-      color: var(--mainColor);
+      color: var(--main-color);
       background: $gray200;
       box-shadow: 0 rem(1) rem(2) $black6;
 
-      @include onDark {
+       @include on-dark {
         background: $gray800;
       }
     }

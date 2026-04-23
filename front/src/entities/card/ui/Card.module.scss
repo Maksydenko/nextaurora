@@ -6,8 +6,8 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  background: var(--mutedBg);
-  border: rem(1) solid var(--borderColor);
+  background: var(--muted-bg);
+  border: rem(1) solid var(--border-color);
   border-radius: rem(16);
   box-shadow:
     0 rem(1) rem(2) $gray9006,
@@ -32,7 +32,7 @@
         sassColor.change($sky400, $alpha: 0.9)
       ),
       radial-gradient(circle at 20% 20%, $white45, transparent 45%);
-    border-bottom: rem(1) solid var(--borderColor);
+    border-bottom: rem(1) solid var(--border-color);
   }
 
   // .card__body
@@ -48,7 +48,7 @@
     font-size: rem(17);
     font-weight: 600;
     line-height: 1.25;
-    color: var(--mainColor);
+    color: var(--main-color);
     letter-spacing: -0.02em;
   }
 
@@ -56,7 +56,7 @@
   &__description {
     font-size: rem(13);
     line-height: 1.55;
-    color: var(--mainColor);
+    color: var(--main-color);
     opacity: 0.8;
   }
 }

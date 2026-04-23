@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { useRouter, useSearchParams } from 'next/navigation'
 
@@ -16,7 +16,9 @@ interface PaginationProps extends Omit<ReactPaginateProps, 'pageCount'> {
   className?: string
   itemsPerPage: number
   itemsPerTotal: number
-  /** 1-based page from the server (keeps pager in sync with RSC after redirects). */
+  /**
+   * 1-based page from the server (keeps pager in sync with RSC after redirects).
+   */
   page?: number
   pageRangeDisplayed?: number
 }
@@ -29,7 +31,7 @@ export const Pagination = ({
   itemsPerTotal,
   page: pageFromServer,
   pageRangeDisplayed = 1,
-  ...props
+  ...rest
 }: PaginationProps): JSX.Element => {
   const { push } = useRouter()
   const searchParams = useSearchParams()
@@ -81,7 +83,7 @@ export const Pagination = ({
       }
       previousLinkClassName={s.pagination__previousLink}
       onPageChange={handlePageChange}
-      {...props}
+      {...rest}
     />
   )
 }

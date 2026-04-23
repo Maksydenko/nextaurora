@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import { Drawer } from 'vaul'
 
@@ -30,7 +30,7 @@ export const SidebarDrawer = ({
       <Drawer.Content
         aria-describedby={undefined}
         className={s.sidebarDrawer__content}
-        id="sidebarNavigation"
+        id="sidebar-navigation"
       >
         <Drawer.Title className={s.sidebarDrawer__title}>
           Sidebar navigation

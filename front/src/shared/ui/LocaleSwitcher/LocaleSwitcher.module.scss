@@ -6,19 +6,19 @@
   // .localeSwitcher__list
   &__list {
     display: flex;
-    color: var(--mainColor);
+    color: var(--main-color);
   }
 
   // .localeSwitcher__item
   &__item {
     &:not(:last-child) {
       padding: 0 em(8, 14) 0 0;
-      border-right: em(1, 14) solid var(--mainColor);
+      border-right: em(1, 14) solid var(--main-color);
     }
 
     &:not(:first-child) {
       padding: 0 0 0 em(8, 14);
-      border-left: em(1, 14) solid var(--mainColor);
+      border-left: em(1, 14) solid var(--main-color);
     }
   }
 

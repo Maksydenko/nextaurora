@@ -1,13 +1,13 @@
 'use client'
 
-import { type JSX, type ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
 
 import clsx from 'clsx'
 import { HiChevronDown } from 'react-icons/hi2'
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
-import { type Option } from '@/shared/model'
+import type { Option } from '@/shared/model'
 
 import s from './Accordion.module.scss'
 
@@ -28,15 +28,15 @@ export const Accordion = ({
   className,
   contentTextClassName,
   items,
-  ...props
+  ...rest
 }: AccordionProps): JSX.Element => {
   const rootProps =
-    props.type === 'multiple'
-      ? props
+    rest.type === 'multiple'
+      ? rest
       : {
           collapsible: true,
           type: 'single' as const,
-          ...props
+          ...rest
         }
 
   return (

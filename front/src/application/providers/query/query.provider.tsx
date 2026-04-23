@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX } from 'react'
+import type { JSX } from 'react'
 
 import {
   QueryClientProvider,
@@ -12,6 +12,9 @@ import { NodeEnv } from '@/shared/config'
 
 import { getQueryClient } from './queryClient.util'
 
+/**
+ * Root TanStack Query provider with optional devtools in development.
+ */
 export const QueryProvider = ({
   children
 }: Partial<QueryClientProviderProps>): JSX.Element => {

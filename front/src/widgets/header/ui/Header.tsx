@@ -55,7 +55,11 @@ export const Header = ({ className }: HeaderProps): JSX.Element => {
     setIsScrollLocked(!isScrollLocked)
   }
 
-  // Close the mobile menu when navigation changes so the next page is usable.
+  /**
+   * Releases scroll lock after navigation so the next page is not stuck with a locked body.
+   *
+   * @remarks Dependency list is only `pathname` on purpose; including `unlockScroll` is disabled below.
+   */
   useEffect(
     () => {
       unlockScroll()

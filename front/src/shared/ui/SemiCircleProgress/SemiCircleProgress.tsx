@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX, type ReactNode } from 'react'
+import type { JSX, ReactNode } from 'react'
 
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 
@@ -23,10 +23,10 @@ export const SemiCircleProgress = ({
     <CircularProgressbar
       circleRatio={aspectRatio}
       styles={buildStyles({
-        pathColor: 'var(--accentColor)',
+        pathColor: 'var(--accent-color)',
         rotation: 0.5 + (1 - aspectRatio) / 2,
         strokeLinecap: 'butt',
-        trailColor: 'var(--mutedBg)'
+        trailColor: 'var(--muted-bg)'
       })}
       value={value}
     />

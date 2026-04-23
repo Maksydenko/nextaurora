@@ -5,6 +5,9 @@ import { formConfig } from '@/shared/config'
 
 const MOBILE_MAX = formConfig.phone.mobile.max
 
+/**
+ * Zod schema for the phone showcase form (`libphonenumber-js` validation).
+ */
 export const phoneViewFormSchema = z.object({
   mobile: z
     .string()

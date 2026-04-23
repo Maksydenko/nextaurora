@@ -6,8 +6,8 @@
   right: 0;
   left: 0;
   z-index: 700;
-  background: var(--mainBgColor);
-  border-bottom: rem(1) solid var(--borderColor);
+  background: var(--main-bg-color);
+  border-bottom: rem(1) solid var(--border-color);
 
   // .header__container
   &__container {
@@ -28,17 +28,17 @@
     gap: rem(32);
     align-items: center;
     justify-content: space-between;
-    height: $headerHeight;
-    min-height: $headerHeight;
+    height: $header-height;
+    min-height: $header-height;
   }
 
   // .header__brand
   &__brand {
-    font-family: $primaryFontFamily;
+    font-family: $primary-font-family;
     font-size: rem(18);
     font-weight: 500;
     line-height: 1;
-    color: var(--mainColor);
+    color: var(--main-color);
     letter-spacing: normal;
     transition: opacity 0.2s ease;
 
