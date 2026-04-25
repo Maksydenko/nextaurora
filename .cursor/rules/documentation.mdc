@@ -53,5 +53,5 @@ For files named **`*.interface.ts`** or **`*.type.ts`** (and only those, not **`
 ## Consistency
 
 - Prefer **one summary line**, then add whichever standard TSDoc tags apply. Use the same **summary-first, then tags** shape across hooks and role-suffixed modules (this is about comment layout, not **`import`** order).
-- **Wording in these rule files** (the **`.mdc`** text): prefer **words** that state the relation (**from**, **to**, **and**, **or**, **then**, **matches**) instead of relying on **symbols alone** as shorthand (arrows, slash-only lists, and similar) so the rules stay easy to read and to search.
+- **Wording in these rule files**: prefer **words** that state the relation (**from**, **to**, **and**, **or**, **then**, **matches**) instead of relying on **symbols alone** as shorthand (arrows, slash-only lists, and similar) so the rules stay easy to read and to search.
 - After edits, run the **package lint script** (must pass with **zero warnings** if that is CI policy). The only intentional exception is short-lived **`console.log`** during local debugging; remove it before merge.
