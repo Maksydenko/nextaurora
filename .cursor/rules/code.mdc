@@ -5,9 +5,9 @@ alwaysApply: true
 
 # Frontend code conventions
 
-Conventions for **module structure**, **naming**, **deferred loading** (bundle and runtime), **lint hygiene**, and **quality bars**, broader than "code style" alone. Applies to the **frontend TypeScript/TSX source tree** (same root as **`architecture.mdc`**). Targets **new** and refactored modules; legacy may diverge until touched.
+Conventions for **module structure**, **naming**, **deferred loading** (bundle and runtime), **lint hygiene**, and **quality bars**, broader than "code style" alone. Applies to the **frontend TypeScript/TSX source tree**. Targets **new** and refactored modules; legacy may diverge until touched.
 
-**FSD slice layout** and **kind**, **segment**, and **role-suffix** pairing are described in **`architecture.mdc`**. **Imports, plugins, and every other lint rule** for that tree are defined only in **`front/eslint.config.js`**; see **ESLint** below.
+**Imports, plugins, and every other lint rule** for that tree are defined only in **`front/eslint.config.js`**; see **ESLint** below.
 
 ## ESLint
 
@@ -16,7 +16,7 @@ Conventions for **module structure**, **naming**, **deferred loading** (bundle a
 
 ## Closed sets of literals (no TypeScript `enum`)
 
-- Do **not** use TypeScript **`enum`**. Prefer a **`const` object** with **`as const`** and an **`export type`** alias that uses **`ValueOf`** with **`typeof`** on that same **`const`** binding, using the project **`ValueOf`** helper (see existing **`*.enum.ts`** files and **`documentation.mdc`**).
+- Do **not** use TypeScript **`enum`**. Prefer a **`const` object** with **`as const`** and an **`export type`** alias that uses **`ValueOf`** with **`typeof`** on that same **`const`** binding, using the project **`ValueOf`** helper.
 - The **`enums/`** segment and **`*.enum.ts`** suffix mean a **finite variant map** implemented that way, not the **`enum`** language feature. In **`*.enum.ts`**, keep **`export type Name = ValueOf<typeof Name>`** directly under **`} as const`** with **no** empty line in between, and add TSDoc **only** on the **`const`** map, not on the **`type`** alias.
 
 ## Stem from the filename
@@ -45,7 +45,7 @@ Conventions for **module structure**, **naming**, **deferred loading** (bundle a
 
 ## One component per file; no hooks in component modules
 
-- A **primary** role-suffix-free **`*.tsx`** (or a single primary component in **`.provider`**, **`.document`**, or **`.shell`**) exports **at most one** React component; extra UI goes to **`parts/`** or another module (see **`architecture.mdc`**, **`ui` and `parts`**).
+- A **primary** role-suffix-free **`*.tsx`** (or a single primary component in **`.provider`**, **`.document`**, or **`.shell`**) exports **at most one** React component; extra UI goes to **`parts/`** or another module.
 - Do **not** define or export **custom hooks** in that same file; use **`hooks/`** or a colocated **`use*.ts`** file.
 
 ## Destructuring, object layout, and small callbacks
@@ -63,6 +63,11 @@ Conventions for **module structure**, **naming**, **deferred loading** (bundle a
 
 - Prefer **`condition && <Node />`** over **`condition ? <Node /> : null`** when the falsy branch is empty. Ensure the left-hand side is a **boolean** or an explicit comparison so numeric zero or an empty string do not render by accident.
 - For **`.length`** checks, prefer **`.length > 0`** over **`!!...length`**.
+- For conditional selection, the **most preferred** form is **dispatch by object/function map** across all alternatives (`?:`, `if/else`, and `switch`) whenever a map can express the same behavior clearly. Preferred pattern: **`{ a: onA, b: onB }[key]`**.
+
+## Guard clauses (early return)
+
+- Prefer **early return** to reduce nesting depth in functions and handlers: instead of wrapping the main path in **`if (condition) { ... }`**, invert the check with a guard clause (**`if (!condition) return`**) and keep the main logic at the base indentation level.
 
 ## Deferred UI (`next/dynamic`)
 
@@ -83,7 +88,7 @@ Conventions for **module structure**, **naming**, **deferred loading** (bundle a
 1. **`import`s** (order as enforced by **`front/eslint.config.js`**).
 2. **Non-exported** helpers and **non-exported** module-level constants ( **`SCREAMING_SNAKE`** literals here when they are fixed magic values lifted from logic).
 3. The **primary** **`interface`** (or **`type`** only if required) for the primary export (**`${ComponentName}Props`** for components) **immediately above** that export.
-4. **TSDoc** on the primary export **only where mandatory** (per **`documentation.mdc`**, not on role-suffix-free UI **`*.tsx`** component exports by default).
+4. **TSDoc** on the primary export **only where mandatory** by your project documentation policy (not on role-suffix-free UI **`*.tsx`** component exports by default).
 5. The **primary export**, then any rare secondary exports (prefer splitting instead).
 
 ## Next.js `app/**/layout.tsx` module order
