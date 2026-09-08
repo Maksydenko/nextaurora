@@ -42,6 +42,8 @@ const eslintConfig = [
         }
       ],
       '@typescript-eslint/explicit-module-boundary-types': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-import-type-side-effects': 'error',
       '@typescript-eslint/no-inferrable-types': [
         'warn',
@@ -50,6 +52,8 @@ const eslintConfig = [
           ignoreProperties: false
         }
       ],
+      '@typescript-eslint/no-unsafe-argument': 'warn',
+      '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'arrow-body-style': ['warn', 'as-needed'],
       curly: ['warn', 'all'],
@@ -105,9 +109,23 @@ const eslintConfig = [
       'no-template-curly-in-string': 'error',
       'no-unused-vars': 'off',
       'no-useless-rename': 'warn',
+      'object-curly-newline': [
+        'warn',
+        {
+          ObjectExpression: {
+            minProperties: 2,
+            multiline: true
+          }
+        }
+      ],
       'object-shorthand': ['warn', 'always'],
       'padding-line-between-statements': [
         'warn',
+        {
+          blankLine: 'always',
+          next: ['class', 'const', 'export', 'function', 'let', 'var'],
+          prev: 'import'
+        },
         {
           blankLine: 'always',
           next: '*',
@@ -190,7 +208,7 @@ const eslintConfig = [
             ['\\/enums$', '\\.enum$'],
             ['\\/types$', '\\.type$'],
             ['\\/interfaces$', '\\.interface$'],
-            ['\\/constant$', '\\/constants$', '\\.const$'],
+            ['\\/constants$', '\\.const$'],
             ['\\/configs$', '\\.config$'],
             ['\\/schemas$', '\\.schema$'],
             ['\\/mocks$', '\\.mock$'],
