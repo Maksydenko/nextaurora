@@ -15,5 +15,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "stylelint.validate": ["css", "less", "postcss", "scss"]
+  "scss.validate": false,
+  "stylelint.validate": ["scss"]
 }
