@@ -1,4 +1,6 @@
-const generator = plop => {
+import type { NodePlopAPI } from 'plop'
+
+const generator = (plop: NodePlopAPI) => {
   plop.setGenerator('module', {
     actions: [
       {
